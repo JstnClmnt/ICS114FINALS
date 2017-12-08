@@ -54,6 +54,15 @@ public class Orders {
         this.totalprice = totalprice;
     }
 
+    public Orders(String size, String imagepic, String productname, int price, int quantity, int totalprice) {
+        this.size = size;
+        this.imagepic = imagepic;
+        this.productname = productname;
+        this.price = price;
+        this.quantity = quantity;
+        this.totalprice = totalprice;
+    }
+
     
     public int getID() {
         return ID;
