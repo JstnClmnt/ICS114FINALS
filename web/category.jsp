@@ -1,3 +1,6 @@
+
+<%@ taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page import="bean.Products"%>
 <!DOCTYPE html>
 <html lang="en">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -55,7 +58,8 @@ input[type=text], input[type=password] {
 <title>Luxur</title>
 
 <!-- Bootstrap -->
-<link rel="stylesheet" href="../web/bootstrap.css">
+
+<link rel="stylesheet" href="category1/bootstrap.css">
 
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -90,9 +94,9 @@ input[type=text], input[type=password] {
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
-      <form class="navbar-form navbar-right" role="search">
+      <form class="navbar-form navbar-right" role="search" action="Reference" method="POST">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Look for Reference #">
+                <input type="text" name="referencenumber" class="form-control" placeholder="Look for Reference #">
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
@@ -172,290 +176,37 @@ input[type=text], input[type=password] {
 <div class="container">
   <div class="row text-center">
     <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
-      <div class="thumbnail"> <img src="images/400X200.gif" alt="Thumbnail Image 1" class="img-responsive">
+        <c:forEach items="${products}" var="prod" >
+      <div class="thumbnail"> <img src="images/${prod.imagepic}" alt="Thumbnail Image 1" class="img-responsive">
         <div class="caption">
-          <h3>Adidas - Yeezy Boost 350 V2 'Cream'</h3>
-          <p>PHP 25750</p>
+          <form action="Cart" method="Post">
+          <h3>${prod.productname}</h3>
+          <p>PHP ${prod.price}</p>
 			<input type="number" name="quantity" min="0" value="" placeholder="Quantity"> </input>
-                  <p> </p>
-          <p>
-            <button class="btn btn-primary" role="button" onclick="document.getElementById('id01').style.display='block'"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Add to Cart</button>
-          
-          </p>
-          
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
-      <div class="thumbnail"> <img src="images/400x200(2).gif" alt="Thumbnail Image 1" class="img-responsive">
-        <div class="caption">
-          <h3>Adidas - Raf Simons Stan Smith </h3>
-          <p>PHP 20000</p>
-          <input type="number" name="quantity" min="0" value="" placeholder="Quantity"> </input>
-                  <p> </p>
-          
-          <p> <button class="btn btn-primary" role="button" onclick="document.getElementById('id02').style.display='block'"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Add to Cart</button>
-         </p>
-        </div>
-      </div>
-    </div>
-    
-    <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
-      <div class="thumbnail"> <img src="images/400x200(3).gif" alt="Thumbnail Image 1" class="img-responsive">
-        <div class="caption">
-          <h3>Adidas - Yeezy Powerphase Calabasas</h3>
-          <p>PHP 30000</p>
-          <input type="number" name="quantity" min="0" value="" placeholder="Quantity"> </input>
-                  <p> </p>
-          <p> <button class="btn btn-primary" role="button" onclick="document.getElementById('id03').style.display='block'"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Add to Cart</button>
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6 hidden-lg hidden-md hidden-sm">
-      <div class="thumbnail"> <img src="images/400x200(4).gif" alt="Thumbnail Image 1" class="img-responsive">
-        <div class="caption">
-          <h3>Adidas - Yeezy Wave Runner</h3>
-          <p>PHP 50000</p>
-          <p><a href="#" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to Cart</a></p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- -->
+                        <c:if test="${prod.category=='Footwear'}">
+                        <input type="number" name="size" min="6" value="" placeholder="Size"> </input>
+                        </c:if>
+                        <c:if test="${prod.category=='Clothing'}">
+                            <select placeholder="Size" name="size">
+                            <option>XS</option>
+                            <option>S</option>
+                            <option>M</option>
+                            <option>L</option>
+                            <option>XL</option>
 
-<div class="container">
-  <div class="row text-center">
-    <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
-      <div class="thumbnail"> <img src="images/400x200(4).gif" alt="Thumbnail Image 1" class="img-responsive">
-        <div class="caption">
-          <h3>Adidas - Yeezy Wave Runner (Limited Stocks ONLY!)</h3>
-          <p>PHP 50000</p>
-          <input type="number" name="quantity" min="0" value="" placeholder="Quantity"> </input>
+                            </select>
+                        </c:if>
                   <p> </p>
           <p>
-            <button class="btn btn-primary" role="button" onclick="document.getElementById('id04').style.display='block'"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Add to Cart</button>
-          
-          </p>
-          
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
-      <div class="thumbnail"> <img src="images/400x200(5).gif" alt="Thumbnail Image 1" class="img-responsive">
-        <div class="caption">
-          <h3>Nike - Air Force 1 'Travis Scott' (Limited Stocks Only!)</h3>
-          <p>PHP 25000</p>
-          <input type="number" name="quantity" min="0" value="" placeholder="Quantity"> </input>
-                  <p> </p>
-          <p> <button class="btn btn-primary" role="button" onclick="document.getElementById('id05').style.display='block'"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Add to Cart</button>
-        </p>
-        </div>
-      </div>
-    </div>
-    
-    <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
-      <div class="thumbnail"> <img src="images/400x200(6).gif" alt="Thumbnail Image 1" class="img-responsive">
-        <div class="caption">
-          <h3>Nike - Air Jordan 1 'Off White' (Limited Stocks ONLY!) </h3>
-          <p>PHP 70000</p>
-          <input type="number" name="quantity" min="0" value="" placeholder="Quantity"> </input>
-                  <p> </p>
-          <p> <button class="btn btn-primary" role="button" onclick="document.getElementById('id06').style.display='block'"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Add to Cart</button>
-           </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- -->
-
-<div class="container">
-  <div class="row text-center">
-    <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
-      <div class="thumbnail"> <img src="images/400x200(7).gif" alt="Thumbnail Image 1" class="img-responsive">
-        <div class="caption">
-          <h3>Nike - Air Max 97 'Silver Bullet'</h3>
-          <p>PHP 10000</p>
-          <input type="number" name="quantity" min="0" value="" placeholder="Quantity"> </input>
-                  <p> </p>
-          <p>
-            <button class="btn btn-primary" role="button" onclick="document.getElementById('id07').style.display='block'"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Add to Cart</button>
-         
-          </p>
-          
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
-      <div class="thumbnail"> <img src="images/400x200(8).gif" alt="Thumbnail Image 1" class="img-responsive">
-        <div class="caption">
-          <h3>Nike - Air Vapormax 'CDG' (Limited Stocks ONLY!)</h3>
-          <p>PHP 25000</p>
-          <input type="number" name="quantity" min="0" value="" placeholder="Quantity"> </input>
-                  <p> </p>
-          <p> <button class="btn btn-primary" role="button" onclick="document.getElementById('id08').style.display='block'"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Add to Cart</button>
-          </p>
-        </div>
-      </div>
-    </div>
-    
-    <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
-      <div class="thumbnail"> <img src="images/400x200(9).gif" alt="Thumbnail Image 1" class="img-responsive">
-        <div class="caption">
-          <h3>Nike - Blazer Mid 'Off White' (Limited Stocks ONLY!) </h3>
-          <p>PHP 13000</p>
-          <input type="number" name="quantity" min="0" value="" placeholder="Quantity"> </input>
-                  <p> </p>
-          <p> <button class="btn btn-primary" role="button" onclick="document.getElementById('id09').style.display='block'"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Add to Cart</button>
-         </p>
-        </div>
-      </div>
-    </div>
-    
+            <button name="productchoice" value="${prod.productname}" class="btn btn-primary" role="button" onclick="document.getElementById('id01').style.display='block'"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Add to Cart</button>
  
-
- <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
-      <div class="thumbnail"> <img src="images/400x200(10).gif" alt="Thumbnail Image 1" class="img-responsive">
-        <div class="caption">
-          <h3>Balenciaga - 'Sinners' T-Shirt</h3>
-          <p>PHP 17000</p>
-          <input type="number" name="quantity" min="0" value="" placeholder="Quantity"> </input>
-                  <p> </p>
-          <p>
-            <button class="btn btn-primary" role="button" onclick="document.getElementById('id01').style.display='block'"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Add to Cart</button>
-          
           </p>
-          
+        </form>  
         </div>
       </div>
-    </div>
-    <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
-      <div class="thumbnail"> <img src="images/400x200(11).gif" alt="Thumbnail Image 1" class="img-responsive">
-        <div class="caption">
-          <h3>Fendi - Black Picasso John Boots Face Pullover </h3>
-          <p>PHP 28000</p>
-          <input type="number" name="quantity" min="0" value="" placeholder="Quantity"> </input>
-                  <p> </p>
-          <p> <button class="btn btn-primary" role="button" onclick="document.getElementById('id02').style.display='block'"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Add to Cart</button>
-         </p>
-        </div>
-      </div>
+        </c:forEach>
     </div>
     
-    <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
-      <div class="thumbnail"> <img src="images/400x200(12).gif" alt="Thumbnail Image 1" class="img-responsive">
-        <div class="caption">
-          <h3>Gosha Rubchinskiy - Grey Sweatshirt</h3>
-          <p>PHP 10000</p>
-          <input type="number" name="quantity" min="0" value="" placeholder="Quantity"> </input>
-                  <p> </p>
-          <p> <button class="btn btn-primary" role="button" onclick="document.getElementById('id03').style.display='block'"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Add to Cart</button>
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6 hidden-lg hidden-md hidden-sm">
-      <div class="thumbnail"> <img src="images/400X200(4).gif" alt="Thumbnail Image 1" class="img-responsive">
-        <div class="caption">
-          <h3>Adidas - Yeezy Wave Runner</h3>
-          <p>PHP 50000</p>
-          <p><a href="#" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to Cart</a></p>
-        </div>
-      </div>
-    </div>
-  </div>
- </div
-<!-- -->
-
-<div class="container">
-  <div class="row text-center">
-    <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
-      <div class="thumbnail"> <img src="images/400x200(13).gif" alt="Thumbnail Image 1" class="img-responsive">
-        <div class="caption">
-          <h3>Gucci - Blue & Red Exit 32 Inchiostro Vest</h3>
-          <p>PHP 29000</p>
-          <input type="number" name="quantity" min="0" value="" placeholder="Quantity"> </input>
-                  <p> </p>
-          <p>
-            <button class="btn btn-primary" role="button" onclick="document.getElementById('id04').style.display='block'"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Add to Cart</button>
-          
-          </p>
-          
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
-      <div class="thumbnail"> <img src="images/400x200(14).gif" alt="Thumbnail Image 1" class="img-responsive">
-        <div class="caption">
-          <h3>Helmut Lang - 'Austria' T-Shirt (Limited Stock Only!)</h3>
-          <p>PHP 7000</p>
-          <input type="number" name="quantity" min="0" value="" placeholder="Quantity"> </input>
-                  <p> </p>
-          <p> <button class="btn btn-primary" role="button" onclick="document.getElementById('id05').style.display='block'"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Add to Cart</button>
-        </p>
-        </div>
-      </div>
-    </div>
-    
-    <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
-      <div class="thumbnail"> <img src="images/400x200(15).gif" alt="Thumbnail Image 1" class="img-responsive">
-        <div class="caption">
-          <h3>PLAY by Comme des Garcons - Grey Patch Hoodie </h3>
-          <p>PHP 15000</p>
-          <input type="number" name="quantity" min="0" value="" placeholder="Quantity"> </input>
-                  <p> </p>
-          <p> <button class="btn btn-primary" role="button" onclick="document.getElementById('id06').style.display='block'"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Add to Cart</button>
-           </p>
-        </div>
-      </div>
-    </div>
-    
-<!-- -->
-
-<div class="container">
-  <div class="row text-center">
-    <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
-      <div class="thumbnail"> <img src="images/400x200(16).gif" alt="Thumbnail Image 1" class="img-responsive">
-        <div class="caption">
-          <h3>PLAY by Comme des Garcons - White Patch Shirt</h3>
-          <p>PHP 13500</p>
-          <input type="number" name="quantity" min="0" value="" placeholder="Quantity"> </input>
-                  <p> </p>
-          <p>
-            <button class="btn btn-primary" role="button" onclick="document.getElementById('id07').style.display='block'"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Add to Cart</button>
-         
-          </p>
-          
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
-      <div class="thumbnail"> <img src="images/400x200(17).gif" alt="Thumbnail Image 1" class="img-responsive">
-        <div class="caption">
-          <h3>Prada - Beige & Grey Shetland Village Sweater</h3>
-          <p>PHP 40750</p>
-          <input type="number" name="quantity" min="0" value="" placeholder="Quantity"> </input>
-                  <p> </p>
-          <p> <button class="btn btn-primary" role="button" onclick="document.getElementById('id08').style.display='block'"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Add to Cart</button>
-          </p>
-        </div>
-      </div>
-    </div>
-    
-    <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
-      <div class="thumbnail"> <img src="images/400x200(18).gif" alt="Thumbnail Image 1" class="img-responsive">
-        <div class="caption">
-          <h3>Vetements - Reversible Bomber Jacket  </h3>
-          <p>PHP 109000</p>
-          <input type="number" name="quantity" min="0" value="" placeholder="Quantity"> </input>
-                  <p> </p>
-          <p> <button class="btn btn-primary" role="button" onclick="document.getElementById('id09').style.display='block'"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Add to Cart</button>
-         </p>
-        </div>
-      </div>
-    </div>
     
 
 
@@ -472,8 +223,8 @@ input[type=text], input[type=password] {
   </div>
 </footer>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
-<script src="../category1/jquery-1.11.3.min.js"></script> 
+<script src="category1/jquery-1.11.3.min.js"></script> 
 <!-- Include all compiled plugins (below), or include individual files as needed --> 
-<script src="../category1/bootstrap.js"></script>
+<script src="category1/bootstrap.js"></script>
 </body>
 </html>

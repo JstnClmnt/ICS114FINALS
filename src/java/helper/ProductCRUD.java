@@ -136,4 +136,24 @@ public class ProductCRUD {
         }
         
     }
+        
+    public void addProduct(Products product){
+        this.init();
+        Session session = factory.openSession();
+        Transaction tx = null;   
+        try {
+                tx = session.beginTransaction();
+                session.save(product); 
+                tx.commit();
+            
+        } catch (Exception e) {
+            if (tx!=null){ 
+               tx.rollback();
+               e.printStackTrace(); 
+            }
+        } finally {
+            session.close(); 
+      }
+    
+    }
 }
