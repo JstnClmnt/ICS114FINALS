@@ -374,13 +374,12 @@ public final class login_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            <!-- Email Footer : BEGIN -->\n");
       out.write("            <table align=\"center\" width=\"600\" class=\"email-container\">\n");
       out.write("            <tr>\n");
-      out.write("                <td style=\"padding: 40px 10px;width: 100%;font-size: 12px; font-family: sans-serif; mso-height-rule: exactly; line-height:18px; text-align: center; color: #888888;\"><webversion style=\"color:#cccccc; text-decoration:underline; font-weight: bold;\">View as a Web Page</webversion>\n");
+      out.write("              <td style=\"padding: 40px 10px;width: 100%;font-size: 12px; font-family: sans-serif; mso-height-rule: exactly; line-height:18px; text-align: center; color: #888888;\"><webversion style=\"color:#cccccc; text-decoration:underline; font-weight: bold;\"></webversion>\n");
       out.write("                <br>\n");
       out.write("                <br>\n");
-      out.write("                Company Name<br>\n");
-      out.write("                <span class=\"mobile-link--footer\">Adobe Systems Incorporated, 345 Park Avenue</span> <br>\n");
       out.write("                <br>\n");
-      out.write("                <unsubscribe style=\"color:#888888; text-decoration:underline;\">unsubscribe</unsubscribe></td>\n");
+      out.write("<br>\n");
+      out.write("                <br></td>\n");
       out.write("              </tr>\n");
       out.write("          </table>\n");
       out.write("            <!-- Email Footer : END -->\n");

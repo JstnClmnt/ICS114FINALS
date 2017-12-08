@@ -263,13 +263,12 @@ a[x-apple-data-detectors] {
             <!-- Email Footer : BEGIN -->
             <table align="center" width="600" class="email-container">
             <tr>
-                <td style="padding: 40px 10px;width: 100%;font-size: 12px; font-family: sans-serif; mso-height-rule: exactly; line-height:18px; text-align: center; color: #888888;"><webversion style="color:#cccccc; text-decoration:underline; font-weight: bold;">View as a Web Page</webversion>
+                <td style="padding: 40px 10px;width: 100%;font-size: 12px; font-family: sans-serif; mso-height-rule: exactly; line-height:18px; text-align: center; color: #888888;"><webversion style="color:#cccccc; text-decoration:underline; font-weight: bold;"></webversion>
                 <br>
                 <br>
-                Company Name<br>
-                <span class="mobile-link--footer">Adobe Systems Incorporated, 345 Park Avenue</span> <br>
                 <br>
-                <unsubscribe style="color:#888888; text-decoration:underline;">unsubscribe</unsubscribe></td>
+<br>
+                <br></td>
               </tr>
           </table>
             <!-- Email Footer : END -->

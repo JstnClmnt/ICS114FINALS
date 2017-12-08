@@ -31,7 +31,7 @@
 	box-sizing: border-box;
 }
 	.selectbox{
-		width: 20%;
+		width: 70%;
 	padding: 12px 20px;
 	margin: 8px 0;
 	display: inline-block;
@@ -210,13 +210,17 @@ a[x-apple-data-detectors] {
                
                
                
-                <td style="padding: 40px; text-align: center; font-family: sans-serif; font-size: 15px; mso-height-rule: exactly; line-height: 20px; color: #555555;"> Maecenas sed ante pellentesque, posuere leo id, eleifend dolor. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Praesent laoreet malesuada cursus. Maecenas scelerisque congue eros eu posuere. Praesent in felis ut velit pretium lobortis rhoncus ut&nbsp;erat. <br>
+                <td style="padding: 40px; text-align: center; font-family: sans-serif; font-size: 15px; mso-height-rule: exactly; line-height: 20px; color: #555555;"><br>
                 <br>
                 
                 <!-- Button : Begin -->
                 
                   <input type="text" placeholder="Enter product name" name="prodname" required>
                   <input type="text" placeholder="Enter price" name="prodprice" required>
+                  <select class="selectbox"> 
+                  	<option> Footwear </option>
+                  	<option> Clothing </option>
+                  </select>
                   <p> </p>
                   
                 
@@ -310,13 +314,12 @@ a[x-apple-data-detectors] {
             <!-- Email Footer : BEGIN -->
             <table align="center" width="600" class="email-container">
             <tr>
-                <td style="padding: 40px 10px;width: 100%;font-size: 12px; font-family: sans-serif; mso-height-rule: exactly; line-height:18px; text-align: center; color: #888888;"><webversion style="color:#cccccc; text-decoration:underline; font-weight: bold;">View as a Web Page</webversion>
+                <td style="padding: 40px 10px;width: 100%;font-size: 12px; font-family: sans-serif; mso-height-rule: exactly; line-height:18px; text-align: center; color: #888888;"><webversion style="color:#cccccc; text-decoration:underline; font-weight: bold;"></webversion>
                 <br>
                 <br>
-                Company Name<br>
-                <span class="mobile-link--footer">Adobe Systems Incorporated, 345 Park Avenue</span> <br>
                 <br>
-                <unsubscribe style="color:#888888; text-decoration:underline;">unsubscribe</unsubscribe></td>
+<br>
+                <br></td>
               </tr>
           </table>
             <!-- Email Footer : END -->
@@ -326,3 +329,4 @@ a[x-apple-data-detectors] {
     </table>
 </body>
 </html>
+

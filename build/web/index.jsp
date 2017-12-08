@@ -77,7 +77,7 @@ input[type=text], input[type=password] {
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-      <a class="navbar-brand" href="#">Name of Brand</a> </div>
+      <a class="navbar-brand" href="#">LUXER</a> </div>
     
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse">
@@ -85,10 +85,23 @@ input[type=text], input[type=password] {
         <li class="active"><a href="#">My Cart <span class="sr-only">(current)</span></a> </li>
         <li><a href="#">Shoes</a> </li>
         <li><a href="#">Clothes</a> </li>
+        
       </ul>
       <form class="navbar-form navbar-right" role="search">
         <div class="form-group"> </div>
         <button type="submit" class="btn btn-default">Log-in</button>
+      </form>
+      <form class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search for Products">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
+      <form class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Look for Reference #">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
       </form>
       <ul class="nav navbar-nav navbar-right hidden-sm">
         <li> </li>
@@ -138,7 +151,7 @@ input[type=text], input[type=password] {
       <div class="row">
         <div class="col-lg-2 col-md-3 col-sm-3 col-xs-2"><img class="img-circle" alt="Free Shipping" src="images/40X40.gif"></div>
         <div class="col-lg-6 col-md-9 col-sm-9 col-xs-9">
-          <h4>Free Shipping</h4>
+          <h4>Cash on Delivery</h4>
         </div>
       </div>
     </div>
@@ -146,7 +159,7 @@ input[type=text], input[type=password] {
       <div class="row">
         <div class="col-lg-2 col-md-3 col-sm-3 col-xs-2"><img class="img-circle" alt="Free Shipping" src="images/40X40.gif"></div>
         <div class="col-lg-6 col-md-9 col-sm-9 col-xs-9">
-          <h4>100% Authentic</h4>
+          <h4>No Fake Policy</h4>
         </div>
       </div>
     </div>
@@ -154,7 +167,7 @@ input[type=text], input[type=password] {
       <div class="row">
         <div class="col-lg-2 col-md-3 col-sm-3 col-xs-2"><img class="img-circle" alt="Free Shipping" src="images/40X40.gif"></div>
         <div class="col-lg-6 col-md-9 col-sm-9 col-xs-9">
-          <h4>Affordable Prices</h4>
+          <h4>Recognized</h4>
         </div>
       </div>
     </div>
@@ -168,151 +181,32 @@ input[type=text], input[type=password] {
     <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
       <div class="thumbnail"> <img src="images/400X200.gif" alt="Thumbnail Image 1" class="img-responsive">
         <div class="caption">
-          <h3>Product</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
+          <h3>Adidas - Yeezy Boost 350 V2 'Cream' (Limited Stocks Only!)</h3>
+          <p>PHP 25750</p>
           <p>
-            <button class="btn btn-primary" role="button" onclick="document.getElementById('id01').style.display='block'"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Add to Cart</button>
-          <div id="id01" class="modal"> <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-            <form class="modal-content animate" action="/action_page.php">
-              <div class="containermodal"> 
-                <!-- <label><b>Email</b></label> --><br>
-                <p></p>
-                <input type="text" placeholder="Enter first name" name="fname" required>
-                <input type="text" placeholder="Enter last name" name="lname" required>
-                <input type="text" placeholder="Enter Email" name="email" required>
-                <input type="text" placeholder="Enter Mobile Number" name="mobnum" required>
-                <input type="text" placeholder="Instructions for Seller" name="instructions">
-                <div>
-                  <select class="selectbox">
-                    <option value="xs">Extra Small</option>
-                    <option value="s">Small</option>
-                    <option value="m">Medium</option>
-                    <option value="l">Large</option>
-                    <option value="xl">XL</option>
-                  </select>
-                  <select class="selectbox">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>    
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                    <option value="8">8</option>
-                    <option value="9">9</option>
-                    <option value="10">10</option>
-                  </select>
-                </div>
-                <!-- <input type="checkbox" checked="checked"> Remember me -->
-               <button> Add to Cart</button>
-              </div>
-                   <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
-            </form>
-          </div>
-          <script>
-
-var modal = document.getElementById('id01');
-
-
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
-</script>
+            <button class="btn btn-primary" role="button" onclick="document.getElementById('id01').style.display='block'">Go to Store Page</button>
+          
           </p>
         </div>
       </div>
     </div>
     <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
-      <div class="thumbnail"> <img src="images/400X200(2).gif" alt="Thumbnail Image 1" class="img-responsive">
+      <div class="thumbnail"> <img src="images/400X200(15).gif" alt="Thumbnail Image 1" class="img-responsive">
         <div class="caption">
-          <h3>Product</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-          <p> <button class="btn btn-primary" role="button" onclick="document.getElementById('id02').style.display='block'"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Add to Cart</button>
-          <div id="id02" class="modal"> <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
-            <form class="modal-content animate" action="/action_page.php">
-              <div class="containermodal"> 
-                <!-- <label><b>Email</b></label> --><br>
-                <p></p>
-                <input type="text" placeholder="Enter first name" name="fname" required>
-                <input type="text" placeholder="Enter last name" name="lname" required>
-                <input type="text" placeholder="Enter Email" name="email" required>
-                <input type="text" placeholder="Enter Mobile Number" name="mobnum" required>
-                <input type="text" placeholder="Instructions for Seller" name="instructions">
-                <div>
-                  <select class="selectbox">
-                    <option value="volvo">Extra Small</option>
-                    <option value="volvo">Small</option>
-                    <option value="saab">Medium</option>
-                    <option value="mercedes">Large</option>
-                    <option value="audi">XL</option>
-                  </select>
-                </div>
-                 <button> Add to Cart</button>
-                <!-- <input type="checkbox" checked="checked"> Remember me -->
-               
-              
-              </div>
-                   <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
-            </form>
-          </div>
-          <script>
-
-var modal = document.getElementById('id02');
-
-
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
-</script> </p>
+          <h3>PLAY by Comme des Garcons - Grey Patch Hoodie </h3>
+          <p>PHP 15000</p>
+          <p> <button class="btn btn-primary" role="button" onclick="document.getElementById('id01').style.display='block'">Go to Store Page</button>
+         </p>
         </div>
       </div>
     </div>
     <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
-      <div class="thumbnail"> <img src="images/400X200(3).gif" alt="Thumbnail Image 1" class="img-responsive">
+      <div class="thumbnail"> <img src="images/400X200(5).gif" alt="Thumbnail Image 1" class="img-responsive">
         <div class="caption">
-          <h3>Product</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-          <p> <button class="btn btn-primary" role="button" onclick="document.getElementById('id03').style.display='block'"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Add to Cart</button>
-          <div id="id03" class="modal"> <span onclick="document.getElementById('id03').style.display='none'" class="close" title="Close Modal">&times;</span>
-            <form class="modal-content animate" action="/action_page.php">
-              <div class="containermodal"> 
-                <!-- <label><b>Email</b></label> --><br>
-                <p></p>
-                <input type="text" placeholder="Enter first name" name="fname" required>
-                <input type="text" placeholder="Enter last name" name="lname" required>
-                <input type="text" placeholder="Enter Email" name="email" required>
-                <input type="text" placeholder="Enter Mobile Number" name="mobnum" required>
-                <input type="text" placeholder="Instructions for Seller" name="instructions">
-                <div>
-                  <select class="selectbox">
-                    <option value="volvo">Extra Small</option>
-                    <option value="volvo">Small</option>
-                    <option value="saab">Medium</option>
-                    <option value="mercedes">Large</option>
-                    <option value="audi">XL</option>
-                  </select>
-                </div>
-                <!-- <input type="checkbox" checked="checked"> Remember me -->
-                 <button> Add to Cart</button>
-                <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
-              </div>
-            </form>
-          </div>
-          <script>
-
-var modal = document.getElementById('id03');
-
-
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
-</script> </p>
+          <h3>Nike - Air Force 1 'Travis Scott'	</h3>
+          <p>PHP 25000</p>
+          <p> <button class="btn btn-primary" role="button" onclick="document.getElementById('id01').style.display='block'">Go to Store Page</button>
+         </p>
         </div>
       </div>
     </div>
@@ -336,16 +230,14 @@ window.onclick = function(event) {
     <div class="col-lg-4 col-md-6">
       <div class="media-object-default">
         <div class="media">
-          <div class="media-left"> <a href="#"> <img class="media-object" src="images/100X125.gif" alt="placeholder image"> </a> </div>
+          <div class="media-left"> <a href="#"> <img class="media-object" src="images/400x200(6).gif" alt="placeholder image"> </a> </div>
           <div class="media-body">
             <h4 class="media-heading">100X125.gif</h4>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis, vitae doloremque voluptatum doloribus neque assumenda velit sapiente quas aliquam ratione. Sed possimus corporis dolorum optio eaque in asperiores soluta expedita! </div>
+            </div>
         </div>
         <div class="media">
-          <div class="media-left"> <a href="#"> <img class="media-object" src="images/100X125 - Copy (4).gif" alt="placeholder image"> </a> </div>
-          <div class="media-body">
-            <h4 class="media-heading">100X125 - Copy (4).gif</h4>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit, quasi doloribus non repellendus quae aperiam. Quos, eligendi itaque soluta ut dignissimos reprehenderit commodi laboriosam quis atque minus enim magnam delectus.</div>
+          <div class="media-left"> <a href="#"> <img class="media-object" src="images/400x200(16).gif" alt="placeholder image"> </a> </div>
+          <div class="media-body"> </div>
         </div>
         <div class="media">
           <div class="media-left"> <a href="#"> </a></div>
@@ -356,17 +248,14 @@ window.onclick = function(event) {
     <div class="col-lg-4 col-md-6">
       <div class="media-object-default">
         <div class="media">
-          <div class="media-left"> <a href="#"> <img class="media-object" src="images/100X125 - Copy (2).gif" alt="placeholder image"></a></div>
+          <div class="media-left"> <a href="#"> <img class="media-object" src="images/400x200(3).gif" alt="placeholder image"></a></div>
           <div class="media-body">
             <h4 class="media-heading">100X125 - Copy (2).gif</h4>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit, eos, et in quam laboriosam ipsum laudantium laborum provident nihil modi reprehenderit tempora voluptatum quasi non libero quaerat vel. Assumenda, officiis?</div>
+            </div>
         </div>
         <div class="media">
-          <div class="media-left"> <a href="#"> <img class="media-object" src="images/100X125 - Copy (5).gif" alt="placeholder image"></a></div>
-          <div class="media-body">
-            <h4 class="media-heading">100X125 - Copy (5).gif</h4>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati, minus, praesentium dignissimos non provident et consectetur illo expedita aliquam laboriosam esse incidunt deleniti accusantium debitis voluptas. Non vitae quos dolorem.</div>
-        </div>
+          <div class="media-left"> <a href="#"> <img class="media-object" src="images/400x200(11).gif" alt="placeholder image"></a></div>
+</div>
         <div class="media">
           <div class="media-left"> <a href="#"> </a></div>
 </div>
@@ -376,17 +265,14 @@ window.onclick = function(event) {
     <div class="col-lg-4 col-md-12 hidden-md">
       <div class="media-object-default">
         <div class="media">
-          <div class="media-left"> <a href="#"> <img class="media-object" src="images/100X125 - Copy (3).gif" alt="placeholder image"></a></div>
+          <div class="media-left"> <a href="#"> <img class="media-object" src="images/400x200(9).gif" alt="placeholder image"></a></div>
           <div class="media-body">
             <h4 class="media-heading">100X125 - Copy (3).gif</h4>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro dolorum reprehenderit vitae omnis. Quidem, recusandae, magni ut perspiciatis nobis consequuntur ullam molestias molestiae obcaecati ea labore aspernatur modi. Impedit, fugit!</div>
+       </div>
         </div>
         <div class="media">
-          <div class="media-left"> <a href="#"> <img class="media-object" src="images/100X125 - Copy (2).gif" alt="placeholder image"></a></div>
-          <div class="media-body">
-            <h4 class="media-heading">100X125 - Copy (6).gif</h4>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, libero, ea itaque atque vero quidem esse optio minus tenetur dolorem delectus nemo fugit deserunt quibusdam veritatis assumenda obcaecati praesentium omnis!</div>
-        </div>
+          <div class="media-left"> <a href="#"> <img class="media-object" src="images/400x200(18).gif" alt="placeholder image"></a></div>
+</div>
         <div class="media">
           <div class="media-left"> <a href="#"> </a></div>
 </div>
@@ -397,11 +283,7 @@ window.onclick = function(event) {
 <hr>
 <footer class="text-center">
   <div class="container">
-    <div class="row">
-      <div class="col-xs-12">
-        <p>Copyright © MyWebsite. All rights reserved.</p>
-      </div>
-    </div>
+    <div class="row"> </div>
   </div>
 </footer>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
