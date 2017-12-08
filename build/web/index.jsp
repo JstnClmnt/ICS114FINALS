@@ -184,8 +184,9 @@ input[type=text], input[type=password] {
           <h3>Adidas - Yeezy Boost 350 V2 'Cream' (Limited Stocks Only!)</h3>
           <p>PHP 25750</p>
           <p>
+          <form action="Store" method="POST">
             <button class="btn btn-primary" role="button" onclick="document.getElementById('id01').style.display='block'">Go to Store Page</button>
-          
+          </form>
           </p>
         </div>
       </div>

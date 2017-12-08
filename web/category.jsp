@@ -3,7 +3,8 @@
     Created on : Dec 8, 2017, 8:14:01 PM
     Author     : Justine Clemente
 --%>
-
+<%@ taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page import="bean.Products"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -179,297 +180,31 @@ input[type=text], input[type=password] {
 <div class="container">
   <div class="row text-center">
     <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
-      <div class="thumbnail"> <img src="images/400X200.gif" alt="Thumbnail Image 1" class="img-responsive">
+      <c:forEach items="${products}" var="prod" >
+      <div class="thumbnail"> <img src="images/${prod.imagepic}" alt="Thumbnail Image 1" class="img-responsive">
         <div class="caption">
-          <h3>Adidas - Yeezy Boost 350 V2 'Cream'</h3>
-          <p>PHP 25750</p>
+          <h3>${prod.productname}</h3>
+          <p>PHP ${prod.price}</p>
           <p>
-            <button class="btn btn-primary" role="button" onclick="document.getElementById('id01').style.display='block'"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Add to Cart</button>
-          
-          </p>
-          
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
-      <div class="thumbnail"> <img src="images/400X200(2).gif" alt="Thumbnail Image 1" class="img-responsive">
-        <div class="caption">
-          <h3>Adidas - Raf Simons Stan Smith </h3>
-          <p>PHP 20000</p>
-          <p> <button class="btn btn-primary" role="button" onclick="document.getElementById('id02').style.display='block'"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Add to Cart</button>
-         </p>
-        </div>
-      </div>
-    </div>
-    
-    <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
-      <div class="thumbnail"> <img src="images/400X200(3).gif" alt="Thumbnail Image 1" class="img-responsive">
-        <div class="caption">
-          <h3>Adidas - Yeezy Powerphase Calabasas</h3>
-          <p>PHP 30000</p>
-          <p> <button class="btn btn-primary" role="button" onclick="document.getElementById('id03').style.display='block'"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Add to Cart</button>
+          <form action="Cart" method="POST">
+            <button name="productchoice" value="${prod.productname}" class="btn btn-primary" role="button" onclick="document.getElementById('id01').style.display='block'"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Add to Cart</button>
+          </form>
           </p>
         </div>
       </div>
+       </c:forEach>
     </div>
-    <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6 hidden-lg hidden-md hidden-sm">
-      <div class="thumbnail"> <img src="images/400X200(4).gif" alt="Thumbnail Image 1" class="img-responsive">
-        <div class="caption">
-          <h3>Adidas - Yeezy Wave Runner</h3>
-          <p>PHP 50000</p>
-          <p><a href="#" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to Cart</a></p>
-        </div>
-      </div>
-    </div>
+   
   </div>
-  <div class="row text-center hidden-xs"> </div>
+</div>
+<!-- -->
 </div>
 <!-- -->
 
-<div class="container">
-  <div class="row text-center">
-    <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
-      <div class="thumbnail"> <img src="images/400X200(4).gif" alt="Thumbnail Image 1" class="img-responsive">
-        <div class="caption">
-          <h3>Adidas - Yeezy Wave Runner (Limited Stocks ONLY!)</h3>
-          <p>PHP 50000</p>
-          <p>
-            <button class="btn btn-primary" role="button" onclick="document.getElementById('id04').style.display='block'"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Add to Cart</button>
-          
-          </p>
-          
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
-      <div class="thumbnail"> <img src="images/400X200(5).gif" alt="Thumbnail Image 1" class="img-responsive">
-        <div class="caption">
-          <h3>Nike - Air Force 1 'Travis Scott'</h3>
-          <p>PHP 25000</p>
-          <p> <button class="btn btn-primary" role="button" onclick="document.getElementById('id05').style.display='block'"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Add to Cart</button>
-        </p>
-        </div>
-      </div>
-    </div>
-    
-    <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
-      <div class="thumbnail"> <img src="images/400X200(6).gif" alt="Thumbnail Image 1" class="img-responsive">
-        <div class="caption">
-          <h3>Nike - Air Jordan 1 'Off White' (Limited Stocks ONLY!) </h3>
-          <p>PHP 70000</p>
-          <p> <button class="btn btn-primary" role="button" onclick="document.getElementById('id06').style.display='block'"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Add to Cart</button>
-           </p>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6 hidden-lg hidden-md hidden-sm">
-      <div class="thumbnail"> <img src="images/400X200.gif" alt="Thumbnail Image 1" class="img-responsive">
-        <div class="caption">
-          <h3>Product</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-          <p><a href="#" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to Cart</a></p>
-        </div>
-      </div>
-    </div>
   </div>
-  <div class="row text-center hidden-xs"> </div>
 </div>
 <!-- -->
-
-<div class="container">
-  <div class="row text-center">
-    <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
-      <div class="thumbnail"> <img src="images/400X200(7).gif" alt="Thumbnail Image 1" class="img-responsive">
-        <div class="caption">
-          <h3>Nike - Air Max 97 'Silver Bullet'</h3>
-          <p>PHP 10000</p>
-          <p>
-            <button class="btn btn-primary" role="button" onclick="document.getElementById('id07').style.display='block'"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Add to Cart</button>
-         
-          </p>
-          
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
-      <div class="thumbnail"> <img src="images/400X200(8).gif" alt="Thumbnail Image 1" class="img-responsive">
-        <div class="caption">
-          <h3>Nike - Air Vapormax 'CDG' (Limited Stocks ONLY!)</h3>
-          <p>PHP 25000</p>
-          <p> <button class="btn btn-primary" role="button" onclick="document.getElementById('id08').style.display='block'"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Add to Cart</button>
-          </p>
-        </div>
-      </div>
-    </div>
-    
-    <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
-      <div class="thumbnail"> <img src="images/400X200(9).gif" alt="Thumbnail Image 1" class="img-responsive">
-        <div class="caption">
-          <h3>Nike - Blazer Mid 'Off White' (Limited Stocks ONLY!) </h3>
-          <p>PHP 13000</p>
-          <p> <button class="btn btn-primary" role="button" onclick="document.getElementById('id09').style.display='block'"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Add to Cart</button>
-         </p>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6 hidden-lg hidden-md hidden-sm">
-      <div class="thumbnail"> <img src="images/400X200.gif" alt="Thumbnail Image 1" class="img-responsive">
-        <div class="caption">
-          <h3>Product</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-          <p><a href="#" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to Cart</a></p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row text-center hidden-xs"> </div>
-</div>
- <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
-      <div class="thumbnail"> <img src="images/400x200(10).gif" alt="Thumbnail Image 1" class="img-responsive">
-        <div class="caption">
-          <h3>Balenciaga - 'Sinners' T-Shirt</h3>
-          <p>PHP 17000</p>
-          <p>
-            <button class="btn btn-primary" role="button" onclick="document.getElementById('id01').style.display='block'"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Add to Cart</button>
-          
-          </p>
-          
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
-      <div class="thumbnail"> <img src="images/400x200(11).gif" alt="Thumbnail Image 1" class="img-responsive">
-        <div class="caption">
-          <h3>Fendi - Black Picasso John Boots Face Pullover </h3>
-          <p>PHP 28000</p>
-          <p> <button class="btn btn-primary" role="button" onclick="document.getElementById('id02').style.display='block'"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Add to Cart</button>
-         </p>
-        </div>
-      </div>
-    </div>
-    
-    <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
-      <div class="thumbnail"> <img src="images/400x200(12).gif" alt="Thumbnail Image 1" class="img-responsive">
-        <div class="caption">
-          <h3>Gosha Rubchinskiy - Grey Sweatshirt</h3>
-          <p>PHP 10000</p>
-          <p> <button class="btn btn-primary" role="button" onclick="document.getElementById('id03').style.display='block'"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Add to Cart</button>
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6 hidden-lg hidden-md hidden-sm">
-      <div class="thumbnail"> <img src="images/400X200(4).gif" alt="Thumbnail Image 1" class="img-responsive">
-        <div class="caption">
-          <h3>Adidas - Yeezy Wave Runner</h3>
-          <p>PHP 50000</p>
-          <p><a href="#" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to Cart</a></p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row text-center hidden-xs"> </div>
-</div>
 <!-- -->
-
-<div class="container">
-  <div class="row text-center">
-    <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
-      <div class="thumbnail"> <img src="images/400x200(13).gif" alt="Thumbnail Image 1" class="img-responsive">
-        <div class="caption">
-          <h3>Gucci - Blue & Red Exit 32 Inchiostro Vest</h3>
-          <p>PHP 29000</p>
-          <p>
-            <button class="btn btn-primary" role="button" onclick="document.getElementById('id04').style.display='block'"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Add to Cart</button>
-          
-          </p>
-          
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
-      <div class="thumbnail"> <img src="images/400x200(14).gif" alt="Thumbnail Image 1" class="img-responsive">
-        <div class="caption">
-          <h3>Helmut Lang - 'Austria' T-Shirt</h3>
-          <p>PHP 7000</p>
-          <p> <button class="btn btn-primary" role="button" onclick="document.getElementById('id05').style.display='block'"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Add to Cart</button>
-        </p>
-        </div>
-      </div>
-    </div>
-    
-    <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
-      <div class="thumbnail"> <img src="images/400x200(15).gif" alt="Thumbnail Image 1" class="img-responsive">
-        <div class="caption">
-          <h3>PLAY by Comme des Garcons - Grey Patch Hoodie </h3>
-          <p>PHP 15000</p>
-          <p> <button class="btn btn-primary" role="button" onclick="document.getElementById('id06').style.display='block'"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Add to Cart</button>
-           </p>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6 hidden-lg hidden-md hidden-sm">
-      <div class="thumbnail"> <img src="images/400X200.gif" alt="Thumbnail Image 1" class="img-responsive">
-        <div class="caption">
-          <h3>Product</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-          <p><a href="#" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to Cart</a></p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row text-center hidden-xs"> </div>
-</div>
-<!-- -->
-
-<div class="container">
-  <div class="row text-center">
-    <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
-      <div class="thumbnail"> <img src="images/400x200(16).gif" alt="Thumbnail Image 1" class="img-responsive">
-        <div class="caption">
-          <h3>PLAY by Comme des Garcons - White Patch Shirt</h3>
-          <p>PHP 13500</p>
-          <p>
-            <button class="btn btn-primary" role="button" onclick="document.getElementById('id07').style.display='block'"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Add to Cart</button>
-         
-          </p>
-          
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
-      <div class="thumbnail"> <img src="images/400x200(17).gif" alt="Thumbnail Image 1" class="img-responsive">
-        <div class="caption">
-          <h3>Prade - Beige & Grey Shetland Village Sweater</h3>
-          <p>PHP 40750</p>
-          <p> <button class="btn btn-primary" role="button" onclick="document.getElementById('id08').style.display='block'"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Add to Cart</button>
-          </p>
-        </div>
-      </div>
-    </div>
-    
-    <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
-      <div class="thumbnail"> <img src="images/400x200(18).gif" alt="Thumbnail Image 1" class="img-responsive">
-        <div class="caption">
-          <h3>Vetements - Reversible Bomber Jacket  </h3>
-          <p>PHP 109000</p>
-          <p> <button class="btn btn-primary" role="button" onclick="document.getElementById('id09').style.display='block'"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Add to Cart</button>
-         </p>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6 hidden-lg hidden-md hidden-sm">
-      <div class="thumbnail"> <img src="images/400X200.gif" alt="Thumbnail Image 1" class="img-responsive">
-        <div class="caption">
-          <h3>Product</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-          <p><a href="#" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to Cart</a></p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row text-center hidden-xs"> </div>
-</div>
 
 
 <!-- -->

@@ -6,7 +6,12 @@
 package helper;
 
 import bean.*;
+import java.util.ArrayList;
+import java.util.List;
+import org.hibernate.Query;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.cfg.AnnotationConfiguration;
 
 /**
@@ -29,5 +34,53 @@ public class ProductCRUD {
             throw new ExceptionInInitializerError(ex); 
         }
     
+    }
+        public ArrayList<Products> readProducts(){
+        this.init();
+        ArrayList<Products> products=new ArrayList<Products>();
+        /**try{
+            Class.forName(JDBC_Driver);
+            test=DriverManager.getConnection(dbURL,"sa","8888");
+            pstmt=test.prepareStatement("SELECT * FROM ProductsPrelimsLab");
+            ResultSet rs=pstmt.executeQuery();
+            while(rs.next()){
+                String ProductName=rs.getString("ProductName");
+                int Price=rs.getInt("Price");
+                String Band=rs.getString("Band");
+                String ImagePic=rs.getString("ImagePic");
+                String Category=rs.getString("Category");
+                if(category.equals(Category)){
+                    Product read=new Product(ProductName,Category,Band,ImagePic,Price);
+                    products.add(read);
+                }
+            }
+            return products;
+        } catch (SQLException | ClassNotFoundException ex) {
+            Logger.getLogger(Read.class.getName()).log(Level.SEVERE, null, ex);
+        }**/
+        
+        Session session=factory.openSession();
+        Transaction tx=null;
+            
+        try{
+            tx=session.beginTransaction();
+            //Query query=(Query)session.createQuery("FROM Person");
+            String hql="FROM Products";
+            Query query=session.createQuery(hql);
+            List order=query.list();
+            products=(ArrayList<Products>)order;
+            if(products.isEmpty())
+                throw new Exception();
+            //INSERT UPDATE PERSON DATABASE HERE WITH PRICE;
+            tx.commit();
+        }
+        catch (Exception e) {
+            if (tx!=null) tx.rollback();
+                e.printStackTrace(); 
+        }
+        finally {
+           session.close(); 
+           return products;
+        }
     }
 }

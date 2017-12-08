@@ -1,10 +1,3 @@
-<%-- 
-    Document   : login
-    Created on : Dec 8, 2017, 6:29:41 PM
-    Author     : Justine Clemente
---%>
-
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!doctype html>
 <html>
     <head>
@@ -14,7 +7,7 @@
     <!-- Forcing initial-scale shouldn't be necessary -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Use the latest (edge) version of IE rendering engine -->
-    <title>EmailTemplate-Responsive</title>
+    <title>Luxur</title>
     <!-- The title tag shows in email notifications, like Android 4.4. -->
     <!-- Please use an inliner tool to convert all CSS to inline as inpage or external CSS is removed by email clients -->
     <!-- important in CSS is used to prevent the styles of currently inline CSS from overriding the ones mentioned in media queries when corresponding screen sizes are encountered -->
@@ -350,4 +343,3 @@ a[x-apple-data-detectors] {
     </table>
 </body>
 </html>
-
