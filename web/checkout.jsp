@@ -55,7 +55,7 @@ input[type=text], input[type=password] {
 <title>Luxur</title>
 
 <!-- Bootstrap -->
-<link rel="stylesheet" href="../web/bootstrap.css">
+<link rel="stylesheet" href="category1/bootstrap.css">
 
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -81,17 +81,17 @@ input[type=text], input[type=password] {
         <li><a href="#">Clothes</a> </li>
         
       </ul>
-      <form class="navbar-form navbar-right" role="search">
+      <form class="navbar-form navbar-right">
         <div class="form-group"> </div>
         <button type="submit" class="btn btn-default">Log-in</button>
       </form>
-      <form class="navbar-form navbar-right" role="search">
+      <form class="navbar-form navbar-right">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search for Products">
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
-      <form class="navbar-form navbar-right" role="search">
+      <form class="navbar-form navbar-right">
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Look for Reference #">
         </div>
@@ -142,19 +142,21 @@ input[type=text], input[type=password] {
   <hr>
 </div>
 <div class="container">
+    <form action="Checkout" method="POST">
 <label> First name</label>
-<input type="text" placeholder="Enter first name" name="fname" required>
+<input type="text" placeholder="Enter first name" name="firstname" required>
 <label>Last name</label>
-<input type="text" placeholder="Enter last name" name="lname" required>
+<input type="text" placeholder="Enter last name" name="lastname" required>
 <label>Contact number</label>
-<input type="text" placeholder="Enter contact number" name="cnum" required>
+<input type="text" placeholder="Enter contact number" name="contactnum" required>
 <label>Address</label>
 <input type="text" placeholder="Enter address" name="address" required>
 <label>Email Address</label>
 <input type="text" placeholder="Enter email address" name="emailaddress" required>
 <label>Instructions to Seller</label>
-<input type="text" placeholder="Enter message" name="address">
+<input type="text" placeholder="Enter message" name="comments">
 <button> Proceed</button>
+    </form>
  </div>
 <hr>
 <hr>
@@ -230,8 +232,8 @@ input[type=text], input[type=password] {
   </div>
 </footer>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
-<script src="../web/jquery-1.11.3.min.js"></script> 
+<script src="jquery-1.11.3.min.js"></script> 
 <!-- Include all compiled plugins (below), or include individual files as needed --> 
-<script src="../web/bootstrap.js"></script>
+<script src="bootstrap.js"></script>
 </body>
 </html>

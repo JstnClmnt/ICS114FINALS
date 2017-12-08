@@ -5,6 +5,7 @@
  */
 package bean;
 
+import java.io.Serializable;
 import javax.persistence.*;
 
 /**
@@ -14,7 +15,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="Products")
-public class Products {
+public class Products implements Serializable{
     @Id @GeneratedValue
     @Column(name="ID")
     private int id;

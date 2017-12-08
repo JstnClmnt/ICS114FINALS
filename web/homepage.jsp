@@ -55,7 +55,7 @@ input[type=text], input[type=password] {
 <title>Luxur</title>
 
 <!-- Bootstrap -->
-<link rel="stylesheet" href="../web/bootstrap.css">
+<link rel="stylesheet" href="../category1/bootstrap.css">
 
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

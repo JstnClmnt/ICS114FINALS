@@ -30,7 +30,7 @@ public class Users {
     private String address;
     
     @Column(name="MobileNumber")
-    private int mobilenumber;
+    private String mobilenumber;
     
     @Column(name="EmailAdd")
     private String emailadd;
@@ -50,15 +50,13 @@ public class Users {
     public Users() {
     }
 
-    public Users(String firstname, String lastname, String address, int mobilenumber, String emailadd, String comments, int price, int referencenumber) {
+    public Users(String firstname, String lastname, String address, String mobilenumber, String emailadd, String comments) {
         this.firstname = firstname;
         this.lastname = lastname;
         this.address = address;
         this.mobilenumber = mobilenumber;
         this.emailadd = emailadd;
         this.comments = comments;
-        this.price = price;
-        this.referencenumber = referencenumber;
     }
 
     public int getId() {
@@ -93,11 +91,11 @@ public class Users {
         this.address = address;
     }
 
-    public int getMobilenumber() {
+    public String getMobilenumber() {
         return mobilenumber;
     }
 
-    public void setMobilenumber(int mobilenumber) {
+    public void setMobilenumber(String mobilenumber) {
         this.mobilenumber = mobilenumber;
     }
 

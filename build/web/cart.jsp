@@ -1,3 +1,6 @@
+<%@ taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page import="bean.Products"%>
+<%@page import="bean.Orders"%>
 <!DOCTYPE html>
 <html lang="en">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -55,7 +58,7 @@ input[type=text], input[type=password] {
 <title>Luxur</title>
 
 <!-- Bootstrap -->
-<link rel="stylesheet" href="../web/bootstrap.css">
+<link rel="stylesheet" href="category1/bootstrap.css">
 
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -147,21 +150,64 @@ input[type=text], input[type=password] {
   <table>
 
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-            
-            <c:if test="${not empty userList}"> 
-                <c:forEach items="${userList}" var="user">
-                    
+             
+                                        <table border="0">
                     <tr class="table">
-                        
-                        <td>
-                               <td class="data">${hfdf}</td>        
-                        </td>          
+                        <th class="cart1"><center>Product</center></th> 
+                        <th class="cart1"><center>Product Name</center></th>
+                        <th class="cart1"><center>Size</center></th>
+                        <th class="cart1"><center>Price</center></th>
+                        <th class="cart1"><center>Quantity</center></th>
+                        <th class="cart1"><center>Total Price</center></th>
+                        <th></th>
                     </tr>
-                    
-                </c:forEach>
-            </c:if>
+                        <c:forEach items="${orders}" var="order" >
+
+                            <tr class="cart2">
+                                <td>
+                            <center>
+                                <img src="images/${order.imagepic}" class="img-responsive img-rounded" height="100px" width="100px">
+                            </center>
+                            </td>
+                            <td>
+                            <center>
+                                ${order.productname}
+                            </center>
+                            </td>
+                             <td>
+                            <center>
+                                ${order.size}
+                            </center>
+                            </td>
+                            <td>
+                            <center>
+                                ${order.price}
+                            </center>
+                            </td>
+                            <td>
+                            <center>
+                                ${order.quantity}
+                            </center>
+                            </td>
+                            <td>
+                            <center>
+
+                                ${order.totalprice}
+
+                            </center>
+                            </td>
+                            <td><button type="submit" class="img-rounded stuff2" name="delete" value="${order.productname}">Delete Order</td>
+                            </tr>
+                        </c:forEach>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td class="cart3">Total</td>
+                        </tr>
         </table>
-	  <button> Proceed to cart </button>
+          <form action="checkout.jsp" method="POST">
+            <button> Proceed to cart </button>
+          </form>
 </div>
 <hr>
 <hr>
@@ -237,8 +283,8 @@ input[type=text], input[type=password] {
   </div>
 </footer>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
-<script src="../web/jquery-1.11.3.min.js"></script> 
+<script src="jquery-1.11.3.min.js"></script> 
 <!-- Include all compiled plugins (below), or include individual files as needed --> 
-<script src="../web/bootstrap.js"></script>
+<script src="bootstrap.js"></script>
 </body>
 </html>

@@ -75,7 +75,7 @@ public class OrdersCRUD {
     }
    
    public ArrayList<Orders> readOrders(int referenceNumber){
-        init();
+        this.init();
         ArrayList<Orders> orders=new ArrayList<Orders>();
         int sumprice=0;
         /**try{
@@ -115,13 +115,13 @@ public class OrdersCRUD {
             Iterator e=order.iterator();
             while(e.hasNext()){
                 Orders a=(Orders)e.next();
-                int price=a.getPrice();
-                int quantity=a.getQuantity();
-                sumprice+=quantity*price;
+                //int price=a.getPrice();
+                //int quantity=a.getQuantity();
+                //sumprice+=quantity*price;
                 orders.add(a);
             }
-            user.setPrice(sumprice);
-            new UsersCRUD().updateUser(sumprice, user);
+            //user.setPrice(sumprice);
+            //new UsersCRUD().updateUser(sumprice, user);
             //INSERT UPDATE PERSON DATABASE HERE WITH PRICE;
             tx.commit();
         }
@@ -134,5 +134,33 @@ public class OrdersCRUD {
            return orders;
         }
     }
+   
+   public int checkout(Users user,ArrayList<Orders> orders){
+       this.init();
+        Session session=factory.openSession();
+        Transaction tx=null;
+        int totalprice=0;
+        try {
+            tx = session.beginTransaction();
+            Iterator it=orders.iterator();
+            while(it.hasNext()){
+                Orders order=(Orders)it.next();
+                order.setFirstname(user.getFirstname());
+                order.setLastname(user.getLastname());
+                order.setTotalprice(order.getQuantity()*order.getPrice());
+                totalprice+=order.getTotalprice();
+                session.save(order);
+            }
+            tx.commit();
+        } catch (Exception e) {
+            if (tx!=null){ 
+               tx.rollback();
+               e.printStackTrace(); 
+            }
+        } finally {
+            session.close(); 
+      }
+        return totalprice;
+   }
     
 }

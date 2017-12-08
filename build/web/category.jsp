@@ -1,11 +1,6 @@
-<%-- 
-    Document   : category
-    Created on : Dec 8, 2017, 8:14:01 PM
-    Author     : Justine Clemente
---%>
+
 <%@ taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@page import="bean.Products"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -60,10 +55,11 @@ input[type=text], input[type=password] {
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Bootstrap eCommerce Template</title>
+<title>Luxur</title>
 
 <!-- Bootstrap -->
-<link rel="stylesheet" href="bootstrap.css">
+
+<link rel="stylesheet" href="category1/bootstrap.css">
 
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -98,9 +94,9 @@ input[type=text], input[type=password] {
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
-      <form class="navbar-form navbar-right" role="search">
+      <form class="navbar-form navbar-right" role="search" action="Reference" method="POST">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Look for Reference #">
+                <input type="text" name="referencenumber" class="form-control" placeholder="Look for Reference #">
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
@@ -180,31 +176,38 @@ input[type=text], input[type=password] {
 <div class="container">
   <div class="row text-center">
     <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
-      <c:forEach items="${products}" var="prod" >
+        <c:forEach items="${products}" var="prod" >
       <div class="thumbnail"> <img src="images/${prod.imagepic}" alt="Thumbnail Image 1" class="img-responsive">
         <div class="caption">
+          <form action="Cart" method="Post">
           <h3>${prod.productname}</h3>
           <p>PHP ${prod.price}</p>
+			<input type="number" name="quantity" min="0" value="" placeholder="Quantity"> </input>
+                        <c:if test="${prod.category=='Footwear'}">
+                        <input type="number" name="size" min="6" value="" placeholder="Size"> </input>
+                        </c:if>
+                        <c:if test="${prod.category=='Clothing'}">
+                            <select placeholder="Size" name="size">
+                            <option>XS</option>
+                            <option>S</option>
+                            <option>M</option>
+                            <option>L</option>
+                            <option>XL</option>
+
+                            </select>
+                        </c:if>
+                  <p> </p>
           <p>
-          <form action="Cart" method="POST">
             <button name="productchoice" value="${prod.productname}" class="btn btn-primary" role="button" onclick="document.getElementById('id01').style.display='block'"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Add to Cart</button>
-          </form>
+ 
           </p>
+        </form>  
         </div>
       </div>
-       </c:forEach>
+        </c:forEach>
     </div>
-   
-  </div>
-</div>
-<!-- -->
-</div>
-<!-- -->
-
-  </div>
-</div>
-<!-- -->
-<!-- -->
+    
+    
 
 
 <!-- -->
@@ -220,8 +223,8 @@ input[type=text], input[type=password] {
   </div>
 </footer>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
-<script src="jquery-1.11.3.min.js"></script> 
+<script src="category1/jquery-1.11.3.min.js"></script> 
 <!-- Include all compiled plugins (below), or include individual files as needed --> 
-<script src="bootstrap.js"></script>
+<script src="category1/bootstrap.js"></script>
 </body>
 </html>

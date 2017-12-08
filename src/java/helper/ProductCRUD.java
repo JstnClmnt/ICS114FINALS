@@ -7,6 +7,7 @@ package helper;
 
 import bean.*;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -82,5 +83,57 @@ public class ProductCRUD {
            session.close(); 
            return products;
         }
+    }
+        
+        public Products readProduct(String productName){
+        this.init();
+        Products product=new Products();
+        /**try{
+            Class.forName(JDBC_Driver);
+            test=DriverManager.getConnection(dbURL,"sa","8888");
+            pstmt=test.prepareStatement("SELECT * FROM ProductsPrelimsLab WHERE ProductName=?");
+            pstmt.setString(1, productName);
+            ResultSet rs=pstmt.executeQuery();
+            while(rs.next()){
+                String ProductName=rs.getString("ProductName");
+                int Price=rs.getInt("Price");
+                String Band=rs.getString("Band");
+                String ImagePic=rs.getString("ImagePic");
+                String Category=rs.getString("Category");
+                product.setProductName(ProductName);
+                product.setPrice(Price);
+                product.setCategory(Category);
+                product.setBand(Band);
+                product.setImagePic(ImagePic);
+            }
+            test.close();
+            return product;
+        } catch (SQLException | ClassNotFoundException ex) {
+            Logger.getLogger(Read.class.getName()).log(Level.SEVERE, null, ex);
+        }**/
+        Session session=factory.openSession();
+        Transaction tx=null;
+            
+        try{
+            tx=session.beginTransaction();
+            String hql="FROM Products WHERE ProductName=:name";
+            Query query=(Query)session.createQuery(hql);
+            query.setParameter("name", productName);
+            List users=query.list();
+            Iterator iterator=users.iterator();
+            while(iterator.hasNext()){
+                product=(Products)iterator.next();
+            }
+            tx.commit();
+        }
+        catch (Exception e) {
+            if (tx!=null) tx.rollback();
+                e.printStackTrace(); 
+        }
+        finally {
+           session.close();
+           return product;
+        }
+        
     }
 }

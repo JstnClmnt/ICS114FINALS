@@ -2,6 +2,8 @@
 import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 import helper.*;
+import bean.*;
+import java.util.ArrayList;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -21,7 +23,11 @@ public class StoreAction implements SessionAware{
     }
     
     public String execute(){
-        sessionMap.put("products", new ProductCRUD().readProducts());
-        return "success";
+            ArrayList<Orders> orders=new ArrayList<Orders>();
+            sessionMap.put("orders", orders);
+
+            sessionMap.put("products", new ProductCRUD().readProducts());
+            return "success";
+
     }
 }

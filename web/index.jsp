@@ -97,9 +97,9 @@ input[type=text], input[type=password] {
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
-      <form class="navbar-form navbar-right" role="search">
+      <form class="navbar-form navbar-right" role="search" action="Reference" method="POST">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Look for Reference #">
+          <input name="referencenumber" type="text" class="form-control" placeholder="Look for Reference #">
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
