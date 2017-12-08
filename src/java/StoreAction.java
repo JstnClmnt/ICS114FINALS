@@ -24,8 +24,8 @@ public class StoreAction implements SessionAware{
     
     public String execute(){
             ArrayList<Orders> orders=new ArrayList<Orders>();
+            orders=(ArrayList)sessionMap.get("orders");
             sessionMap.put("orders", orders);
-
             sessionMap.put("products", new ProductCRUD().readProducts());
             return "success";
 

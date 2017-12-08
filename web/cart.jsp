@@ -196,8 +196,10 @@ input[type=text], input[type=password] {
 
                             </center>
                             </td>
-                            <td><button type="submit" class="img-rounded stuff2" name="delete" value="${order.productname}">Delete Order</td>
-                            </tr>
+                            <form action="Delete" method="POST">
+                                <td><button type="submit" class="img-rounded stuff2" name="delete" value="${order.productname}">Delete Order</td>
+                            </form>
+                        </tr>
                         </c:forEach>
                         <tr>
                             <td></td>
