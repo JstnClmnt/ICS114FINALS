@@ -40,7 +40,15 @@ made subject to such option by the copyright holder.
 Contributor(s):
 -->
 <hibernate-configuration>
-  <session-factory>
-
-    </session-factory>
+<session-factory>
+    <property name="hibernate.dialect">org.hibernate.dialect.SQLServer2012Dialect</property>
+    <property name="hibernate.connection.driver_class">com.microsoft.sqlserver.jdbc.SQLServerDriver</property>
+    <property name="hibernate.connection.url">jdbc:sqlserver://localhost:1433;databaseName=ICS114FINALS</property>
+    <property name="hibernate.connection.username">sa</property>
+    <property name="hibernate.connection.password">8888</property>
+    
+    <mapping class="bean.Users" />
+    <mapping class="bean.Orders" />
+    <mapping class="bean.Products" />
+</session-factory>
 </hibernate-configuration>
