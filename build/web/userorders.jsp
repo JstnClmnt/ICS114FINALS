@@ -148,9 +148,9 @@ a[x-apple-data-detectors] {
                         <th class="cart1"><center>Mobile Number</center></th>
                         <th class="cart1"><center>Email Address</center></th>
                         <th class="cart1"><center>Comments</center></th>
-                        <th class="cart1"><center>Price</center></th>
-                        <th class="cart1"><center>Reference Number</center></th>
                         <th class="cart1"><center>Orders</center></th>
+                        <th class="cart1"><center>Reference Number</center></th>
+                        <th class="cart1"><center>Price</center></th>
                     </tr>
                     <tr class="cart2">
                     <c:forEach var="customer" items="${all}">
@@ -182,14 +182,6 @@ a[x-apple-data-detectors] {
                                                 <td>
                             <center>
                                 <p>${customer.comments}</p>
-                            </center>
-                        </td>
-                            <center>
-                                <p>${customer.price}</p>
-                            </center>
-                        </td>
-                            <center>
-                                <p>${customer.referencenumber}</p>
                             </center>
                         </td>
                         <td>
@@ -233,6 +225,16 @@ a[x-apple-data-detectors] {
                                     </tr>
                                     </c:forEach>
                                 </table>
+                        </td>
+                                                   <td>
+                            <center>
+                                <p>${customer.referencenumber}</p>
+                            </center>
+                        </td>
+                                                   <td>
+                            <center>
+                                <p>${customer.price}</p>
+                            </center>
                         </td>
                         <td>
                             <form action="Deliver" method="POST">
