@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=US-ASCII"
+    pageEncoding="US-ASCII"%>
+<%@ taglib uri="/struts-tags"  prefix="s"%>
 <!doctype html>
 <html>
     <head>
@@ -207,10 +210,10 @@ a[x-apple-data-detectors] {
                 <br>
                 
                 <!-- Button : Begin -->
-                
-                  <input type="text" placeholder="Enter product name" name="prodname" required>
-                  <input type="text" placeholder="Enter price" name="prodprice" required>
-                  <select class="selectbox"> 
+                   <s:form action="UploadFile" method="post" enctype="multipart/form-data" accept="image*/">
+                  <input type="text" placeholder="Enter product name" name="productname" required>
+                  <input type="text" placeholder="Enter price" name="productprice" required>
+                  <select class="selectbox" name="category"> 
                   	<option> Footwear </option>
                   	<option> Clothing </option>
                   </select>
@@ -219,10 +222,10 @@ a[x-apple-data-detectors] {
                 
                 <table cellspacing="0" cellpadding="0" border="0" align="center" style="margin: auto">
                     <tr> </tr>
-                  <form action-"">
-                  	<input type="file" name="Browse file" accept="image/*"> 
+                  	<s:file label="File" name="file"></s:file>
                   	<input type="submit">
-                  </form>
+                  </s:form>
+
                   <tr>
                   
                   	<p> </p>
