@@ -82,24 +82,24 @@ input[type=text], input[type=password] {
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">My Cart <span class="sr-only">(current)</span></a> </li>
-        <li><a href="#">Shoes</a> </li>
-        <li><a href="#">Clothes</a> </li>
-        
+        <li class="active"><a href="cart.jsp">My Cart <span class="sr-only">(current)</span></a> </li>
+        <li><form action="Store" method="POST">
+            <button type="submit" class="btn btn-default">Store</button>
+            </form>
       </ul>
-      <form class="navbar-form navbar-right" role="search">
+      <form action="login.jsp" method="POST" class="navbar-form navbar-right" role="search">
         <div class="form-group"> </div>
         <button type="submit" class="btn btn-default">Log-in</button>
       </form>
-      <form class="navbar-form navbar-right" role="search">
+      <form action="Search" method="POST" class="navbar-form navbar-right" role="search">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search for Products">
+          <input name="search" type="text" class="form-control" placeholder="Search for Products">
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
       <form class="navbar-form navbar-right" role="search" action="Reference" method="POST">
         <div class="form-group">
-          <input name="referencenumber" type="text" class="form-control" placeholder="Look for Reference #">
+                <input type="text" name="referencenumber" class="form-control" placeholder="Look for Reference #">
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
@@ -192,21 +192,27 @@ input[type=text], input[type=password] {
       </div>
     </div>
     <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
-      <div class="thumbnail"> <img src="images/400X200(15).gif" alt="Thumbnail Image 1" class="img-responsive">
+      <div class="thumbnail"> <img src="images/400x200(15).gif" alt="Thumbnail Image 1" class="img-responsive">
         <div class="caption">
           <h3>PLAY by Comme des Garcons - Grey Patch Hoodie </h3>
           <p>PHP 15000</p>
-          <p> <button class="btn btn-primary" role="button" onclick="document.getElementById('id01').style.display='block'">Go to Store Page</button>
+          <p>           
+          <form action="Store" method="POST">
+            <button class="btn btn-primary" role="button" onclick="document.getElementById('id01').style.display='block'">Go to Store Page</button>
+          </form>
          </p>
         </div>
       </div>
     </div>
     <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
-      <div class="thumbnail"> <img src="images/400X200(5).gif" alt="Thumbnail Image 1" class="img-responsive">
+      <div class="thumbnail"> <img src="images/400x200(5).gif" alt="Thumbnail Image 1" class="img-responsive">
         <div class="caption">
           <h3>Nike - Air Force 1 'Travis Scott'	</h3>
           <p>PHP 25000</p>
-          <p> <button class="btn btn-primary" role="button" onclick="document.getElementById('id01').style.display='block'">Go to Store Page</button>
+          <p>           
+            <form action="Store" method="POST">
+            <button class="btn btn-primary" role="button" onclick="document.getElementById('id01').style.display='block'">Go to Store Page</button>
+            </form>
          </p>
         </div>
       </div>

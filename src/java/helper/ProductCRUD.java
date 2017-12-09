@@ -36,7 +36,7 @@ public class ProductCRUD {
         }
     
     }
-        public ArrayList<Products> readProducts(){
+    public ArrayList<Products> readProducts(){
         this.init();
         ArrayList<Products> products=new ArrayList<Products>();
         /**try{
@@ -84,7 +84,55 @@ public class ProductCRUD {
            return products;
         }
     }
+        public ArrayList<Products> searchProducts(String s){
+        this.init();
+        ArrayList<Products> products=new ArrayList<Products>();
+        /**try{
+            Class.forName(JDBC_Driver);
+            test=DriverManager.getConnection(dbURL,"sa","8888");
+            pstmt=test.prepareStatement("SELECT * FROM ProductsPrelimsLab");
+            ResultSet rs=pstmt.executeQuery();
+            while(rs.next()){
+                String ProductName=rs.getString("ProductName");
+                int Price=rs.getInt("Price");
+                String Band=rs.getString("Band");
+                String ImagePic=rs.getString("ImagePic");
+                String Category=rs.getString("Category");
+                if(category.equals(Category)){
+                    Product read=new Product(ProductName,Category,Band,ImagePic,Price);
+                    products.add(read);
+                }
+            }
+            return products;
+        } catch (SQLException | ClassNotFoundException ex) {
+            Logger.getLogger(Read.class.getName()).log(Level.SEVERE, null, ex);
+        }**/
         
+        Session session=factory.openSession();
+        Transaction tx=null;
+            
+        try{
+            tx=session.beginTransaction();
+            //Query query=(Query)session.createQuery("FROM Person");
+            String hql="FROM Products WHERE ProductName LIKE :u";
+            Query query=session.createQuery(hql);
+            query.setParameter("u", "%"+s+"%");
+            List order=query.list();
+            products=(ArrayList<Products>)order;
+            if(products.isEmpty())
+                throw new Exception();
+            //INSERT UPDATE PERSON DATABASE HERE WITH PRICE;
+            tx.commit();
+        }
+        catch (Exception e) {
+            if (tx!=null) tx.rollback();
+                e.printStackTrace(); 
+        }
+        finally {
+           session.close(); 
+           return products;
+        }
+    }
         public Products readProduct(String productName){
         this.init();
         Products product=new Products();

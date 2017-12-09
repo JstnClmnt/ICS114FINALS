@@ -5,7 +5,7 @@
 <style>
 /* Full-width input fields */
 input[type=text], input[type=password] {
-	width: 70%;
+	width: 100%;
 	padding: 12px 20px;
 	margin: 8px 0;
 	display: inline-block;
@@ -55,7 +55,7 @@ input[type=text], input[type=password] {
 <title>Luxur</title>
 
 <!-- Bootstrap -->
-<link rel="stylesheet" href="../category1/bootstrap.css">
+<link rel="stylesheet" href="category1/bootstrap.css">
 
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -76,24 +76,24 @@ input[type=text], input[type=password] {
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">My Cart <span class="sr-only">(current)</span></a> </li>
-        <li><a href="#">Shoes</a> </li>
-        <li><a href="#">Clothes</a> </li>
-        
+        <li class="active"><a href="cart.jsp">My Cart <span class="sr-only">(current)</span></a> </li>
+        <li><form action="Store" method="POST">
+            <button type="submit" class="btn btn-default">Store</button>
+            </form>
       </ul>
-      <form class="navbar-form navbar-right" role="search">
+      <form action="login.jsp" method="POST" class="navbar-form navbar-right" role="search">
         <div class="form-group"> </div>
         <button type="submit" class="btn btn-default">Log-in</button>
       </form>
-      <form class="navbar-form navbar-right" role="search">
+      <form action="Search" method="POST" class="navbar-form navbar-right" role="search">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search for Products">
+          <input name="search" type="text" class="form-control" placeholder="Search for Products">
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
-      <form class="navbar-form navbar-right" role="search">
+      <form class="navbar-form navbar-right" role="search" action="Reference" method="POST">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Look for Reference #">
+                <input type="text" name="referencenumber" class="form-control" placeholder="Look for Reference #">
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
@@ -111,8 +111,10 @@ input[type=text], input[type=password] {
       </ul>
     </div>
     <!-- /.navbar-collapse --> 
+    
   </div>
   <!-- /.container-fluid --> 
+  
 </nav>
 <div class="container">
   <div class="row">
@@ -128,7 +130,7 @@ input[type=text], input[type=password] {
             <div class="carousel-caption"> Stocks are only limited. Get yours now! </div>
           </div>
           <div class="item active"> <img class="img-responsive" src="images/1920x500(2).gif" alt="thumb">
-            <div class="carousel-caption"> Footware and clothing up for grabs! Enhance your wardrobe now.  </div>
+            <div class="carousel-caption"> Footware and clothing are up for grab! Get yours now! </div>
           </div>
           <div class="item"> <img class="img-responsive" src="images/1920x500(3).gif" alt="thumb">
             <div class="carousel-caption"> </div>
@@ -140,82 +142,18 @@ input[type=text], input[type=password] {
   <hr>
 </div>
 <div class="container">
-  <div class="row">
-    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-      <div class="row">
-        <div class="col-lg-2 col-md-3 col-sm-3 col-xs-2"><img class="img-circle" alt="Free Shipping" src="images/40X40.gif"></div>
-        <div class="col-lg-6 col-md-9 col-sm-9 col-xs-9">
-          <h4>Cash on Delivery</h4>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-      <div class="row">
-        <div class="col-lg-2 col-md-3 col-sm-3 col-xs-2"><img class="img-circle" alt="Free Shipping" src="images/40X40.gif"></div>
-        <div class="col-lg-6 col-md-9 col-sm-9 col-xs-9">
-          <h4>No Fake Policy</h4>
-        </div>
-      </div>
-    </div>
-    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
-      <div class="row">
-        <div class="col-lg-2 col-md-3 col-sm-3 col-xs-2"><img class="img-circle" alt="Free Shipping" src="images/40X40.gif"></div>
-        <div class="col-lg-6 col-md-9 col-sm-9 col-xs-9">
-          <h4>Recognized</h4>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+   Thank you for buying, for future reference purposes, please keep this Reference Number:
+   ${user.referencenumber}
+ </div>
 <hr>
-<h2 class="text-center">RECOMMENDED PRODUCTS</h2>
 <hr>
 <div class="container">
-  <div class="row text-center">
-    <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
-      <div class="thumbnail"> <img src="images/400X200.gif" alt="Thumbnail Image 1" class="img-responsive">
-        <div class="caption">
-          <h3>Adidas - Yeezy Boost 350 V2 'Cream' (Limited Stocks Only!)</h3>
-          <p>PHP 25750</p>
-          <p>
-            <button class="btn btn-primary" role="button" onclick="document.getElementById('id01').style.display='block'">Go to Store Page</button>
-          
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
-      <div class="thumbnail"> <img src="images/400x200(15).gif" alt="Thumbnail Image 1" class="img-responsive">
-        <div class="caption">
-          <h3>PLAY by Comme des Garcons - Grey Patch Hoodie </h3>
-          <p>PHP 15000</p>
-          <p> <button class="btn btn-primary" role="button" onclick="document.getElementById('id01').style.display='block'">Go to Store Page</button>
-         </p>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
-      <div class="thumbnail"> <img src="images/400x200(5).gif" alt="Thumbnail Image 1" class="img-responsive">
-        <div class="caption">
-          <h3>Nike - Air Force 1 'Travis Scott'	(Limited Stocks Only) </h3>
-          <p>PHP 25000</p>
-          <p> <button class="btn btn-primary" role="button" onclick="document.getElementById('id01').style.display='block'">Go to Store Page</button>
-         </p>
-        </div>
-      </div>
-    </div>
-    <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6 hidden-lg hidden-md hidden-sm">
-      <div class="thumbnail"> <img src="images/400x200.gif" alt="Thumbnail Image 1" class="img-responsive">
-        <div class="caption">
-          <h3>Product</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-          <p><a href="#" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Add to Cart</a></p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row text-center hidden-xs"> </div>
+			
+				
+                  
+<div class="row text-center hidden-xs"> </div>
 </div>
+
 <hr>
 <h2 class="text-center">FEATURED PRODUCTS</h2>
 <hr>
@@ -226,7 +164,7 @@ input[type=text], input[type=password] {
         <div class="media">
           <div class="media-left"> <a href="#"> <img class="media-object" src="images/400x200(6).gif" alt="placeholder image"> </a> </div>
           <div class="media-body">
-            <h4 class="media-heading"></h4>
+            <h4 class="media-heading">100X125.gif</h4>
             </div>
         </div>
         <div class="media">
@@ -244,7 +182,7 @@ input[type=text], input[type=password] {
         <div class="media">
           <div class="media-left"> <a href="#"> <img class="media-object" src="images/400x200(3).gif" alt="placeholder image"></a></div>
           <div class="media-body">
-            <h4 class="media-heading"></h4>
+            <h4 class="media-heading">100X125 - Copy (2).gif</h4>
             </div>
         </div>
         <div class="media">
@@ -261,7 +199,7 @@ input[type=text], input[type=password] {
         <div class="media">
           <div class="media-left"> <a href="#"> <img class="media-object" src="images/400x200(9).gif" alt="placeholder image"></a></div>
           <div class="media-body">
-            <h4 class="media-heading"></h4>
+            <h4 class="media-heading">100X125 - Copy (3).gif</h4>
        </div>
         </div>
         <div class="media">
@@ -281,8 +219,8 @@ input[type=text], input[type=password] {
   </div>
 </footer>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
-<script src="../web/jquery-1.11.3.min.js"></script> 
+<script src="jquery-1.11.3.min.js"></script> 
 <!-- Include all compiled plugins (below), or include individual files as needed --> 
-<script src="../web/bootstrap.js"></script>
+<script src="bootstrap.js"></script>
 </body>
 </html>

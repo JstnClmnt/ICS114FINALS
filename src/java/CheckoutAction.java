@@ -33,6 +33,7 @@ public class CheckoutAction implements SessionAware{
         Users user=new Users(firstname,lastname,address,contactnum,emailaddress,comments);
         user.setPrice(new OrdersCRUD().checkout(user, orders));
         new UsersCRUD().addUser(user);
+        sessionMap.put("user",user);
         return "success";
     }
 

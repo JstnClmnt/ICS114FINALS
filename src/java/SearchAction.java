@@ -2,8 +2,8 @@
 import java.util.Map;
 import org.apache.struts2.interceptor.SessionAware;
 import helper.*;
-import bean.*;
 import java.util.ArrayList;
+import bean.*;
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -14,29 +14,27 @@ import java.util.ArrayList;
  *
  * @author Justine Clemente
  */
-public class ReferenceAction implements SessionAware{
-    private int referencenumber;
+public class SearchAction implements SessionAware{
+    public String search;
     private Map<String, Object> sessionMap;
     @Override
     public void setSession(Map<String, Object> map) {
         this.sessionMap=map;
     }
-    public String execute(){
-        Users user=new UsersCRUD().readUser(referencenumber);
-        ArrayList<Orders> orders=new ArrayList<Orders>();
-        orders=new OrdersCRUD().readOrders(referencenumber);
-        sessionMap.put("user",user);
-        sessionMap.put("orders", orders);
-        return "success";
     
+    public String execute(){
+        ArrayList<Products> orders=new ArrayList<Products>();
+        orders=new ProductCRUD().searchProducts(search);
+        sessionMap.put("products", orders);
+        return "success";
     }
 
-    public int getReferencenumber() {
-        return referencenumber;
+    public String getSearch() {
+        return search;
     }
 
-    public void setReferencenumber(int referencenumber) {
-        this.referencenumber = referencenumber;
+    public void setSearch(String search) {
+        this.search = search;
     }
     
     

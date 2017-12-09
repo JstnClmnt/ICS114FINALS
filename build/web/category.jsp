@@ -79,18 +79,19 @@ input[type=text], input[type=password] {
     
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">My Cart <span class="sr-only">(current)</span></a> </li>
-        <li><a href="#">Shoes</a> </li>
-        <li><a href="#">Clothes</a> </li>
+       <ul class="nav navbar-nav">
+        <li class="active"><a href="cart.jsp">My Cart <span class="sr-only">(current)</span></a> </li>
+        <li><form action="Store" method="POST">
+            <button type="submit" class="btn btn-default">Store</button>
+            </form>
       </ul>
-      <form class="navbar-form navbar-right" role="search">
+      <form action="login.jsp" method="POST" class="navbar-form navbar-right" role="search">
         <div class="form-group"> </div>
         <button type="submit" class="btn btn-default">Log-in</button>
       </form>
-      <form class="navbar-form navbar-right" role="search">
+      <form action="Search" method="POST" class="navbar-form navbar-right" role="search">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search for Products">
+          <input name="search" type="text" class="form-control" placeholder="Search for Products">
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
@@ -174,9 +175,10 @@ input[type=text], input[type=password] {
 <h2 class="text-center">Footwear and Clothing</h2>
 <hr>
 <div class="container">
+ 	
   <div class="row text-center">
-    <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
-        <c:forEach items="${products}" var="prod" >
+   		<div class="container-fluid">
+   			 <c:forEach items="${products}" var="prod" >
       <div class="thumbnail"> <img src="images/${prod.imagepic}" alt="Thumbnail Image 1" class="img-responsive">
         <div class="caption">
           <form action="Cart" method="Post">
@@ -196,15 +198,15 @@ input[type=text], input[type=password] {
 
                             </select>
                         </c:if>
-                  <p> </p>
-          <p>
-            <button name="productchoice" value="${prod.productname}" class="btn btn-primary" role="button" onclick="document.getElementById('id01').style.display='block'"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>Add to Cart</button>
- 
-          </p>
-        </form>  
-        </div>
+   		</div>
+                        
       </div>
-        </c:forEach>
+                         </c:forEach>
+    <div class="col-sm-4 col-md-4 col-lg-4 col-xs-6">
+	        <table>
+	        	
+	        </table>
+		       
     </div>
     
     
@@ -213,7 +215,10 @@ input[type=text], input[type=password] {
 <!-- -->
 <hr>
 <hr>
-<div class="container"> </div>
+<div class="container"> 
+
+
+</div>
 <hr>
 <footer class="text-center">
   <div class="container">

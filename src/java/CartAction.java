@@ -24,29 +24,52 @@ public class CartAction implements SessionAware{
         ProductCRUD b=new ProductCRUD();
         Products prodorder=b.readProduct(productchoice);
         Orders order=new Orders(size,prodorder.getImagepic(),prodorder.getProductname(),prodorder.getPrice(),quantity,quantity*prodorder.getPrice());
-        ArrayList<Orders> orders=new ArrayList<>();
+        ArrayList<Orders> orders=new ArrayList<Orders>();
         orders=(ArrayList<Orders>)sessionMap.get("orders");
-        Iterator it=orders.iterator();
-            if(orders.contains(order)){
+        Iterator it;
+        int total=0;
+        if(orders==null){
+            orders=new ArrayList<Orders>();
+            order.setQuantity(quantity);
+            orders.add(order);
+            sessionMap.put("orders", orders);
+             System.out.println("HELLO!");
+            return "success";
+        }
+        else{
+            System.out.println("Henlo");
+            it=orders.iterator();
+        }
                while(it.hasNext()){
                    Orders p=(Orders)it.next();
-                   if(p.equals(order)){
-                       it.remove();
+                   if(p.getProductname().equals(order.getProductname())){
+                        System.out.println("panget");
+                        it.remove();
+                        orders.remove(p);
                         order.setQuantity(quantity+order.getQuantity());
-                        order.setPrice(order.getQuantity()*order.getPrice());
-                        break;
+                        order.setTotalprice(order.getQuantity()*order.getPrice());
+                        orders.add(order);
+                        sessionMap.put("orders", orders);
+                        sessionMap.put("total",this.computetotal(orders));
+                       return "success";
                    }
                }
-               orders.add(order);
-                sessionMap.put("orders", orders);
-               return "success";
-            }
-            else{
-                order.setQuantity(quantity);
-                orders.add(order);
-                sessionMap.put("orders", orders);
-                return "success";
-            }
+            order.setQuantity(quantity);
+            orders.add(order);
+            sessionMap.put("total",this.computetotal(orders));
+            sessionMap.put("orders", orders);
+            return "success";
+            
+    }
+    
+    public int computetotal(ArrayList<Orders> orders){
+        int totalp=0;
+        Iterator it=orders.iterator();
+        while(it.hasNext()){
+            Orders p=(Orders)it.next();
+            totalp+=p.getTotalprice();
+        }
+        return totalp;
     }
     @Override
     public void setSession(Map<String, Object> map) {

@@ -1,3 +1,6 @@
+<%@ taglib  uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@page import="bean.Products"%>
+<%@page import="bean.Orders"%>
 <!DOCTYPE html>
 <html lang="en">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -142,22 +145,66 @@ input[type=text], input[type=password] {
   <hr>
 </div>
 <div class="container">
-    <form action="Checkout" method="POST">
-<label> First name</label>
-<input type="text" placeholder="Enter first name" name="firstname" required>
-<label>Last name</label>
-<input type="text" placeholder="Enter last name" name="lastname" required>
-<label>Contact number</label>
-<input type="text" placeholder="Enter contact number" name="contactnum" required>
-<label>Address</label>
-<input type="text" placeholder="Enter address" name="address" required>
-<label>Email Address</label>
-<input type="text" placeholder="Enter email address" name="emailaddress" required>
-<label>Instructions to Seller</label>
-<input type="text" placeholder="Enter message" name="comments">
-<button> Proceed</button>
-    </form>
- </div>
+   
+   <!-- JSTL HERE @ JUSTINE -->
+  <table>
+
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+             
+                                        <table border="0">
+                    <tr class="table">
+                        <th class="cart1"><center>Product</center></th> 
+                        <th class="cart1"><center>Product Name</center></th>
+                        <th class="cart1"><center>Size</center></th>
+                        <th class="cart1"><center>Price</center></th>
+                        <th class="cart1"><center>Quantity</center></th>
+                        <th class="cart1"><center>Total Price</center></th>
+                        <th></th>
+                    </tr>
+                        <c:forEach items="${orders}" var="order" >
+
+                            <tr class="cart2">
+                                <td>
+                            <center>
+                                <img src="images/${order.imagepic}" class="img-responsive img-rounded" height="100px" width="100px">
+                            </center>
+                            </td>
+                            <td>
+                            <center>
+                                ${order.productname}
+                            </center>
+                            </td>
+                             <td>
+                            <center>
+                                ${order.size}
+                            </center>
+                            </td>
+                            <td>
+                            <center>
+                                ${order.price}
+                            </center>
+                            </td>
+                            <td>
+                            <center>
+                                ${order.quantity}
+                            </center>
+                            </td>
+                            <td>
+                            <center>
+
+                                ${order.totalprice}
+
+                            </center>
+                            </td>
+                        </tr>
+                        </c:forEach>
+                        <tr>
+                            <td></td>
+                            <td></td>
+                            <td class="cart3">Total ${user.price}</td>
+                        </tr>
+        </table>
+</div>
 <hr>
 <hr>
 <div class="container">

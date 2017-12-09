@@ -76,24 +76,24 @@ input[type=text], input[type=password] {
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">My checkout <span class="sr-only">(current)</span></a> </li>
-        <li><a href="#">Shoes</a> </li>
-        <li><a href="#">Clothes</a> </li>
-        
+        <li class="active"><a href="cart.jsp">My Cart <span class="sr-only">(current)</span></a> </li>
+        <li><form action="Store" method="POST">
+            <button type="submit" class="btn btn-default">Store</button>
+            </form>
       </ul>
-      <form class="navbar-form navbar-right">
+      <form action="login.jsp" method="POST" class="navbar-form navbar-right" role="search">
         <div class="form-group"> </div>
         <button type="submit" class="btn btn-default">Log-in</button>
       </form>
-      <form class="navbar-form navbar-right">
+      <form action="Search" method="POST" class="navbar-form navbar-right" role="search">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search for Products">
+          <input name="search" type="text" class="form-control" placeholder="Search for Products">
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
-      <form class="navbar-form navbar-right">
+      <form class="navbar-form navbar-right" role="search" action="Reference" method="POST">
         <div class="form-group">
-          <input type="text" class="form-control" placeholder="Look for Reference #">
+                <input type="text" name="referencenumber" class="form-control" placeholder="Look for Reference #">
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
       </form>
