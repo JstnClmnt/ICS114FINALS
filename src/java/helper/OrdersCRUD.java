@@ -78,29 +78,6 @@ public class OrdersCRUD {
         this.init();
         ArrayList<Orders> orders=new ArrayList<Orders>();
         int sumprice=0;
-        /**try{
-            Class.forName(JDBC_Driver);
-            test=DriverManager.getConnection(dbURL,"sa","8888");
-            pstmt=test.prepareStatement("SELECT * FROM Orders WHERE Username=?");
-            pstmt.setString(1, person.getUserName());
-            ResultSet rs=pstmt.executeQuery();
-            while(rs.next()){
-                String username=rs.getString("Username");
-                String imagepic=rs.getString("ImagePic");
-                String prodname=rs.getString("ProductName");
-                int price=rs.getInt("Price");
-                int Quantity=rs.getInt("Quantity");
-                int totalprice=rs.getInt("TotalPrice");
-                sumprice+=Quantity*price;
-                Orders order=new Orders(username,imagepic,prodname,price,Quantity,totalprice);
-                orders.add(order);
-            }
-            person.setPrice(sumprice);
-            new Update().updateUser(sumprice, person);
-            return orders;
-        } catch (SQLException | ClassNotFoundException ex) {
-            Logger.getLogger(Read.class.getName()).log(Level.SEVERE, null, ex);
-        }**/
         Session session=factory.openSession();
         Transaction tx=null;
         Users user=new UsersCRUD().readUser(referenceNumber);
@@ -134,7 +111,39 @@ public class OrdersCRUD {
            return orders;
         }
     }
-   
+      public void deliverProduct(Users person){
+       init();
+        /**try {
+            Class.forName(JDBC_Driver);
+            Connection connect = DriverManager.getConnection(dbURL, "sa", "8888");
+            String delete = "DELETE FROM Orders WHERE Username=?";
+            PreparedStatement createStm = connect.prepareStatement(delete);
+            createStm.setString(1, person.getUserName());
+            createStm.executeUpdate();
+            new Update().updateUser(0, person);
+        } catch (SQLException | ClassNotFoundException ex) {
+            Logger.getLogger(Create.class.getName()).log(Level.SEVERE, null, ex);
+        }**/
+        Session session=factory.openSession();
+        Transaction tx=null;
+            
+        try{
+            tx=session.beginTransaction();
+            String hql="DELETE FROM Orders WHERE FirstName=:f AND LastName=:l";
+            Query query=(Query)session.createQuery(hql);
+            query.setParameter("f", person.getFirstname());
+            query.setParameter("l", person.getLastname());
+            query.executeUpdate();
+            tx.commit();
+        }
+        catch (Exception e) {
+            if (tx!=null) tx.rollback();
+                e.printStackTrace(); 
+        }
+        finally {
+           session.close();
+        }
+    }
    public int checkout(Users user,ArrayList<Orders> orders){
        this.init();
         Session session=factory.openSession();
@@ -162,5 +171,5 @@ public class OrdersCRUD {
       }
         return totalprice;
    }
-    
+  
 }

@@ -157,35 +157,19 @@ a[x-apple-data-detectors] {
             <!-- 1 Column Text : BEGIN -->
             
             
-            <tr>
-                <td style="padding: 40px; text-align: center; font-family: sans-serif; font-size: 15px; mso-height-rule: exactly; line-height: 20px; color: #555555;">
-                
-                <a href="http://www.google.com" style="background: #222222; border: 15px solid #222222; padding: 0 10px;color: #ffffff; font-family: sans-serif; font-size: 13px; line-height: 1.1; text-align: center; text-decoration: none; display: block; border-radius: 3px; font-weight: bold;" class="button-a"> 
-                      <!--[if mso]>&nbsp;&nbsp;&nbsp;&nbsp;<![endif]-->View ordered products<!--[if mso]>&nbsp;&nbsp;&nbsp;&nbsp;<![endif]--> 
-                      </a>
-                      
+                    <form action="ReadOrders" method="POST">
+                    <!--[if mso]>&nbsp;&nbsp;&nbsp;&nbsp;<![endif]--><button type="submit">View ordered products</button><!--[if mso]>&nbsp;&nbsp;&nbsp;&nbsp;<![endif]--> 
+                    </form>
                       <p> </p>
-                      
-                      <a href="http://www.google.com" style="background: #222222; border: 15px solid #222222; padding: 0 10px;color: #ffffff; font-family: sans-serif; font-size: 13px; line-height: 1.1; text-align: center; text-decoration: none; display: block; border-radius: 3px; font-weight: bold;" class="button-a"> 
-                      <!--[if mso]>&nbsp;&nbsp;&nbsp;&nbsp;<![endif]-->Add products to store<!--[if mso]>&nbsp;&nbsp;&nbsp;&nbsp;<![endif]--> 
-                      </a>
+                      <form action="addproduct.jsp" method="POST">
+                          <!--[if mso]>&nbsp;&nbsp;&nbsp;&nbsp;<![endif]--><button type="submit">Add products to store</submit><!--[if mso]>&nbsp;&nbsp;&nbsp;&nbsp;<![endif]--> 
+                      </form>
                 <br>
                 
                 <!-- Button : Begin -->
                 
-                <table cellspacing="0" cellpadding="0" border="0" align="center" style="margin: auto">
-                    <tr>
-                    <td style="border-radius: 3px; background: #222222; text-align: center;" class="button-td"><a href="http://www.google.com" style="background: #222222; border: 15px solid #222222; padding: 0 10px;color: #ffffff; font-family: sans-serif; font-size: 13px; line-height: 1.1; text-align: center; text-decoration: none; display: block; border-radius: 3px; font-weight: bold;" class="button-a"> 
-                      <!--[if mso]>&nbsp;&nbsp;&nbsp;&nbsp;<![endif]-->Log-out<!--[if mso]>&nbsp;&nbsp;&nbsp;&nbsp;<![endif]--> 
-                      </a>
-                      
-                      
-                      </td>
-                  </tr>
-                  </table>
-                
-                <!-- Button : END --></td>
-              </tr>
+                <!-- Button : END -->
+              
             <!-- 1 Column Text : BEGIN --> 
             <br>
             <!-- Background Image with Text : BEGIN -->

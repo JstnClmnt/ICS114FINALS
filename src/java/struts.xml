@@ -41,5 +41,14 @@
          <action name="Search" class="SearchAction" method="execute">
             <result name="success">/category.jsp</result>
         </action>
+        <action name="Login" class="loginAction" method="execute">
+            <result name="success">/adminpage.jsp</result>
+        </action>
+        <action name="ReadOrders" class="OrdersAction" method="execute">
+            <result name="success">/userorders.jsp</result>
+        </action>
+        <action name="Deliver" class="DeliverAction" method="execute">
+            <result name="success">/userorders.jsp</result>
+        </action>
     </package>
 </struts>

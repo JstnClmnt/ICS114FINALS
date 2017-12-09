@@ -5,6 +5,7 @@
  */
 package helper;
 import bean.*;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import org.hibernate.*;
@@ -34,21 +35,6 @@ public class UsersCRUD {
     
     public void addUser(Users person){
         this.init();
-        /**try {
-            Class.forName(JDBC_Driver);
-            Connection connect = DriverManager.getConnection(dbURL, "sa", "8888");
-            String create = "INSERT INTO UsersPrelimsLab VALUES(?,?,?,?,?,?)";
-            PreparedStatement createStm = connect.prepareStatement(create);
-            createStm.setString(1, person.getFirstName());
-            createStm.setString(2, person.getLastName());
-            createStm.setString(3, person.getUserName());
-            createStm.setString(4, person.getPassword());
-            createStm.setString(5, person.getUserType());
-            createStm.setInt(6, 0);
-            createStm.executeUpdate();
-        } catch (SQLException | ClassNotFoundException ex) {
-            Logger.getLogger(Create.class.getName()).log(Level.SEVERE, null, ex);
-        }**/
         Session session = factory.openSession();
         Transaction tx = null;
         Random random=new Random(); 
@@ -148,5 +134,32 @@ public class UsersCRUD {
            session.close();
         }
     }
-    
+        public ArrayList<Users> readAll(){
+        this.init();
+        Users person=new Users();
+        ArrayList<Users> all=new ArrayList<Users>();
+        Session session=factory.openSession();
+        Transaction tx=null;
+            
+        try{
+            tx=session.beginTransaction();
+            //Query query=(Query)session.createQuery("FROM Person");
+            List users=(session.createQuery("FROM Users").list());
+            Iterator it=users.iterator();
+            while(it.hasNext()){
+                person=(Users)it.next();
+                person.setOrders(new OrdersCRUD().readOrders(person.getReferencenumber()));
+                all.add(person);
+            }
+            tx.commit();
+        }
+        catch (Exception e) {
+            if (tx!=null) tx.rollback();
+                e.printStackTrace(); 
+        }
+        finally {
+           session.close(); 
+        }
+        return all;
+    }
 }

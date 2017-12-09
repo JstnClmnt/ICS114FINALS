@@ -194,7 +194,7 @@ a[x-apple-data-detectors] {
             
             <!-- Hero Image, Flush : BEGIN -->
             <tr>
-                <td class="full-width-image"><img src="images/Image_600x300.png" width="600" alt="alt_text" border="0" align="center" style="width: 100%; max-width: 600px; height: auto;"></td>
+                </td>
               </tr>
             <!-- Hero Image, Flush : END --> 
             
@@ -205,21 +205,11 @@ a[x-apple-data-detectors] {
                 <br>
                 
                 <!-- Button : Begin -->
-                 <input type="text" placeholder="Enter username" name="uname" required>
-                <input type="password" placeholder="Enter password" name="pword" required>
-                <table cellspacing="0" cellpadding="0" border="0" align="center" style="margin: auto">
-                   <br>
-                    <tr>
-                    
-                    
-                    <td style="border-radius: 3px; background: #222222; text-align: center;" class="button-td"><a href="http://www.google.com" style="background: #222222; border: 15px solid #222222; padding: 0 10px;color: #ffffff; font-family: sans-serif; font-size: 13px; line-height: 1.1; text-align: center; text-decoration: none; display: block; border-radius: 3px; font-weight: bold;" class="button-a"> 
-                      <!--[if mso]>&nbsp;&nbsp;&nbsp;&nbsp;<![endif]-->Log-in<!--[if mso]>&nbsp;&nbsp;&nbsp;&nbsp;<![endif]--> 
-                      </a>
-                      
-                      </td>
-                  </tr>
-                  </table>
-                
+                <form action="Login" method="POST">
+                 <input type="text" placeholder="Enter username" name="username" required>
+                <input type="password" placeholder="Enter password" name="password" required>
+                <input type="submit">
+                  </form>
                 <!-- Button : END --></td>
               </tr>
             <!-- 1 Column Text : BEGIN --> 

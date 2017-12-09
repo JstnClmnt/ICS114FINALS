@@ -58,7 +58,7 @@ input[type=text], input[type=password] {
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Bootstrap eCommerce Template</title>
+<title>LUXUR</title>
 
 <!-- Bootstrap -->
 <link rel="stylesheet" href="bootstrap.css">
@@ -131,14 +131,13 @@ input[type=text], input[type=password] {
         </ol>
         <div class="carousel-inner">
           <div class="item"> <img class="img-responsive" src="images/1920x500(1).gif" alt="thumb">
-            <div class="carousel-caption"> Carousel caption 1. Here goes slide description. Lorem ipsum dolor set amet. </div>
+            <div class="carousel-caption">  </div>
           </div>
           <div class="item active"> <img class="img-responsive" src="images/1920x500(2).gif" alt="thumb">
-            <div class="carousel-caption"> Carousel caption 2. Here goes slide description. Lorem ipsum dolor set amet. </div>
+            <div class="carousel-caption">  </div>
           </div>
           <div class="item"> <img class="img-responsive" src="images/1920x500(3).gif" alt="thumb">
-            <div class="carousel-caption"> Carousel caption 3. Here goes slide description. Lorem ipsum dolor set amet. </div>
-          </div>
+            <div class="carousel-caption"> 
         </div>
         <a class="left carousel-control" href="#carousel1" data-slide="prev"><span class="icon-prev"></span></a> <a class="right carousel-control" href="#carousel1" data-slide="next"><span class="icon-next"></span></a></div>
     </div>

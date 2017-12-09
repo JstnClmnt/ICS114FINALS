@@ -198,7 +198,9 @@ input[type=text], input[type=password] {
 
                             </select>
                         </c:if>
-   		</div>
+                        <button type="submit" name="productchoice" value="${prod.productname}"> Add to Cart </button>
+   	</form>	
+        </div>
                         
       </div>
                          </c:forEach>
